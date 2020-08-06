@@ -1,0 +1,34 @@
+{
+  "name": "ghrsea11-fec-gallery",
+  "version": "1.0.0",
+  "description": "Gallery service for Etsy clone as part of the GHRSEA Front End Capstone project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamchupacabramcthundercats/etsy-gallery.git"
+  },
+  "keywords": [
+    "Hack",
+    "Reactor",
+    "Front",
+    "End",
+    "Capstone"
+  ],
+  "author": "Joel Carpenter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamchupacabramcthundercats/etsy-gallery/issues"
+  },
+  "homepage": "https://github.com/teamchupacabramcthundercats/etsy-gallery#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "flickr-sdk": "^3.9.0",
+    "morgan": "^1.10.0"
+  }
+}
