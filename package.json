@@ -27,11 +27,12 @@
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "sharp": "^0.25.4"
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "faker": "^4.1.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "sharp": "^0.25.4"
   }
 }

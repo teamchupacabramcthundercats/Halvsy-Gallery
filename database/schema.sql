@@ -15,7 +15,9 @@ DROP TABLE IF EXISTS `images`;
 
 CREATE TABLE `images` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
-  `url` VARCHAR(255) NOT NULL,
+  `full` VARCHAR(255) NOT NULL,
+  `small` VARCHAR(255) NOT NULL,
+  `thumbnail` VARCHAR(255) NOT NULL,
   `product_id` INTEGER NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`product_id`)
