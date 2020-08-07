@@ -1,6 +1,8 @@
-CREATE DATABASE gallery;
+CREATE DATABASE IF NOT EXISTS gallery;
 
 USE gallery;
+
+DROP TABLE IF EXISTS `products`;
 
 CREATE TABLE `products` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
@@ -9,15 +11,14 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`)
 );
 
+DROP TABLE IF EXISTS `images`;
+
 CREATE TABLE `images` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `url` VARCHAR(255) NOT NULL,
   `product_id` INTEGER NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`)
+    REFERENCES `products` (`id`)
+    ON DELETE CASCADE
 )
-
-ALTER TABLE `images`
-  ADD CONSTRAINT FOREIGN KEY (`product_id`)
-  REFERENCES `products` (`id`)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE;

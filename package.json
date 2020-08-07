@@ -4,7 +4,8 @@
   "description": "Gallery service for Etsy clone as part of the GHRSEA Front End Capstone project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon --watch server ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,9 +27,11 @@
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sharp": "^0.25.4"
   },
   "devDependencies": {
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
   }
 }
