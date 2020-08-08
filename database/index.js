@@ -1,3 +1,7 @@
-const { db } = require('init.js');
+const { db } = require('./connection.js')
 
-db.connect();
+module.exports = {
+  db: db
+}
+
+

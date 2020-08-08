@@ -2,7 +2,6 @@ const path = require('path');
 
 const IMG_PATH = 'https://fec-gallery.s3-us-west-2.amazonaws.com/';
 
-
 module.exports.padNum = (number, size) => {
   let result = "000" + number;
   return result.substr(-size);
