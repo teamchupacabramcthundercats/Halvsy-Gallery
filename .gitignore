@@ -7,3 +7,6 @@ webpack.config.js
 
 ## utilities ##
 utils/photos/images
+
+## Docker ##
+Dockerfile
