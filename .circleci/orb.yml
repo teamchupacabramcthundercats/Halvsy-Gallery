@@ -11,6 +11,7 @@ jobs:
           MYSQL_DATABASE: gallery
     steps:
       - checkout
+      - run: sudo brew install mysql
       - run: npm install
       - run: npm run reset-db
       - run: npm run test
