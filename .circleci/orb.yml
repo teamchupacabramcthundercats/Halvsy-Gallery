@@ -13,6 +13,7 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get install default-mysql-client
+      - run: sudo mysql.server start
       - run: npm install
       - run: npm run reset-db
       - run: npm run test
