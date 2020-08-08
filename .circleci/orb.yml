@@ -8,10 +8,11 @@ jobs:
       - image: circleci/mysql
         environment: 
           MYSQL_USER: student
+          MYSQL_PASSWORD: student
           MYSQL_DATABASE: gallery
     steps:
       - checkout
-      - run: sudo brew install mysql
+      - run: sudo apt-get install default-mysql-client
       - run: npm install
       - run: npm run reset-db
       - run: npm run test
