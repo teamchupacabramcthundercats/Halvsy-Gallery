@@ -1,7 +1,20 @@
 const path = require('path');
+const { db } = require('../../database/init.js');
 
 const IMG_PATH = 'https://fec-gallery.s3-us-west-2.amazonaws.com/';
 
+
+module.exports.queryAsync = (query) => {
+  return new Promise((resolve, reject) => {
+    db.query(query, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    })
+  });
+};
 
 module.exports.padNum = (number, size) => {
   let result = "000" + number;
