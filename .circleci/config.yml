@@ -2,7 +2,7 @@
 version: 2.1
 
 orbs:
-  gallery: aldosac/etsy-gallery@1.1.6
+  gallery: aldosac/etsy-gallery@1.1.7
 
 workflows:
   main:
