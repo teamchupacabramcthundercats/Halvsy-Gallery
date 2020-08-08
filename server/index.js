@@ -19,14 +19,14 @@ app.use(morgan('dev'));
 //routes
 app.get('/api/images/:product_id', (req, res) => {
   let { product_id } = req.params;
-  console.log(`product_id: ${product_id}`);
+
   models.getImageById(product_id) 
     .then((productData) => {
       res.send(productData);
     })
     .catch((err) => {
       console.log(err);
-      res.sendStatus(500);
+      res.sendStatus(404);
     });
 });
 
