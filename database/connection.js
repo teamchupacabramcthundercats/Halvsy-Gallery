@@ -5,4 +5,16 @@ module.exports.db = mysql.createConnection({
   user: `student`,
   password: `student`,
   database: `gallery`
-});
+})
+
+module.exports.db.queryAsync = (QUERY) => {
+  return new Promise((resolve, reject) => {
+    module.exports.db.query(QUERY, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    })
+  });
+};

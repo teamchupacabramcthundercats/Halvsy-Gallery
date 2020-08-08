@@ -1,8 +1,9 @@
 const { db } = require('../../database/index.js');
 const faker = require('faker');
-const utils = require('./utils.js');
 
 db.connect();
+
+const utils = require('./utils.js');
 
 const generateProductData = () => {
   let product = { is_favorite: 0 };
@@ -33,7 +34,7 @@ const addProductToDb = (product) => {
 
   let PRODUCT_QUERY = `INSERT INTO products (name, is_favorite) 
   VALUES ("${product.name}", ${product.is_favorite})`;
-  return utils.queryAsync(PRODUCT_QUERY)
+  return db.queryAsync(PRODUCT_QUERY)
     .then((results) => {
       let product_id = results.insertId;
       
@@ -41,7 +42,7 @@ const addProductToDb = (product) => {
         let image = images[i];
         let IMAGE_QUERY = `INSERT INTO images (full, small, thumbnail, product_id)
         VALUES ("${image.full}", "${image.small}", "${image.thumbnail}", ${product_id})`
-        promises.push(utils.queryAsync(IMAGE_QUERY));
+        promises.push(db.queryAsync(IMAGE_QUERY));
       }
     })
     .then(() => Promise.all(promises))

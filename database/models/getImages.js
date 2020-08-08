@@ -1,14 +1,13 @@
-const utils = require('../../utils/database/utils.js');
 const { db } = require('../index.js');
 
 const getProductDataById = (productId) => {
   let QUERY = `SELECT * FROM products WHERE id = ${productId}`;
-  return utils.queryAsync(QUERY);
+  return db.queryAsync(QUERY);
 }
 
 const getImageDataByProdId = (productId) => {
   let QUERY = `SELECT full, small, thumbnail FROM images WHERE product_id = ${productId}`;
-  return utils.queryAsync(QUERY);
+  return db.queryAsync(QUERY);
 }
 
 module.exports.getImageById = (productId) => {
