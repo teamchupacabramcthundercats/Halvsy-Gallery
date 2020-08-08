@@ -1,0 +1,18 @@
+version: 2.1
+description: Orb for Etsy gallery component clone project
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node
+      - image: circleci/mysql
+        environment: 
+          MYSQL_USER: student
+          MYSQL_DATABASE: gallery
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run reset-db
+      - run: npm run test
+      
+

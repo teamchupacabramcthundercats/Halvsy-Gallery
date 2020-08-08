@@ -2,25 +2,9 @@
 version: 2.1
 
 orbs:
-  gallery: 
-    jobs:
-      build:
-        docker:
-          - image: circleci/node
-          - image: circleci/mysql
-            environment: 
-              MYSQL_USER: student
-              MYSQL_DATABASE: gallery
-        steps:
-          - checkout
-          - run: npm run reset-db
-          - run: npm run seed-db
-      test:
-        steps:
-          - run: npm run test
+  gallery: aldosac/etsy-gallery@1.1.2
 
 workflows:
   main:
     jobs:
-      - gallery/build
       - gallery/test
