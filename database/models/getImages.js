@@ -1,8 +1,8 @@
-const mysql = require('mysql');
 const utils = require('../../utils/database/utils.js');
+const { db } = require('../index.js');
 
 const getProductDataById = (productId) => {
-  let QUERY = `SELECT name, is_favorite FROM products WHERE id = ${productId}`;
+  let QUERY = `SELECT * FROM products WHERE id = ${productId}`;
   return utils.queryAsync(QUERY);
 }
 
@@ -16,9 +16,7 @@ module.exports.getImageById = (productId) => {
     let productData = {};
     getProductDataById(productId)
       .then((result) => {
-        result = result[0];
-        productData.name = result.name;
-        productData.is_favorite = result.is_favorite;
+        productData = result[0];
         return getImageDataByProdId(productId);
       })
       .then((results) => {

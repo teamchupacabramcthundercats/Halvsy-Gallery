@@ -1,4 +1,4 @@
-const { db } = require('../../database/init.js');
+const { db } = require('../../database/index.js');
 const faker = require('faker');
 const utils = require('./utils.js');
 

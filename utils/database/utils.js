@@ -1,12 +1,11 @@
 const path = require('path');
-const { db } = require('../../database/init.js');
+const { db } = require('../../database/index.js');
 
 const IMG_PATH = 'https://fec-gallery.s3-us-west-2.amazonaws.com/';
 
-
-module.exports.queryAsync = (query) => {
+module.exports.queryAsync = (QUERY) => {
   return new Promise((resolve, reject) => {
-    db.query(query, (err, result) => {
+    db.query(QUERY, (err, result) => {
       if (err) {
         reject(err);
       } else {

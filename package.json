@@ -4,7 +4,7 @@
   "description": "Gallery service for Etsy clone as part of the GHRSEA Front End Capstone project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "server": "nodemon --watch server ./server/index.js",
     "reset-db": "mysql -u student -p < database/schema.sql",
     "seed-db": "node utils/database/seedDb.js"
@@ -50,6 +50,7 @@
     "faker": "^4.1.0",
     "install": "^0.13.0",
     "jest": "^26.2.2",
+    "jest-extended": "^0.11.5",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "npm": "^6.14.7",
@@ -58,6 +59,7 @@
     "webpack-cli": "^3.3.12"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "setupFilesAfterEnv": ["jest-extended"]
   }
 }
