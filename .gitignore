@@ -4,6 +4,7 @@ node_modules
 ## config ##
 config.js
 webpack.config.js
+.eslintrc.js
 
 ## utilities ##
 utils/photos/images

@@ -1,5 +1,5 @@
-const { db } = require('../index.js');
-const models = require('../models');
+const { db } = require('../../database/index.js');
+const models = require('../../database/models');
 
 beforeAll(() => {
   db.connect();
