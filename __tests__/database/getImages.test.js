@@ -1,6 +1,6 @@
 /* eslint-disable */
-const { db } = require('../../../../database/index.js');
-const models = require('../../../../database/models');
+const { db } = require('../../database/index.js');
+const models = require('../../database/models');
 
 beforeAll(() => {
   db.connect();
