@@ -49,7 +49,6 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "faker": "^4.1.0",
-    "install": "^0.13.0",
     "jest": "^26.2.2",
     "jest-extended": "^0.11.5",
     "morgan": "^1.10.0",
@@ -61,7 +60,9 @@
   },
   "jest": {
     "verbose": true,
-    "setupFilesAfterEnv": ["jest-extended"]
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
   },
   "lint-staged": {
     "*.js": "eslint"
