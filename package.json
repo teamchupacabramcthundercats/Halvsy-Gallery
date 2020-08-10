@@ -62,6 +62,7 @@
   "jest": {
     "verbose": true,
     "setupFilesAfterEnv": [
+      "<rootDir>tests/setupTests.js",
       "jest-extended"
     ]
   },
