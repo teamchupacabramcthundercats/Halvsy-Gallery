@@ -1,20 +1,22 @@
-const { db } = require('../../database/index.js');
+/* eslint-disable no-plusplus */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const faker = require('faker');
+const { db } = require('../../database/index.js');
 
 db.connect();
 
 const utils = require('./utils.js');
 
 const generateProductData = () => {
-  let product = { is_favorite: 0 };
-  let images = [];
-  let numberOfImages = Math.floor(Math.random() * 15 + 1);
-  let imgIds = utils.generateImageIds();
-  
+  const product = { is_favorite: 0 };
+  const images = [];
+  const numberOfImages = Math.floor(Math.random() * 15 + 1);
+  const imgIds = utils.generateImageIds();
+
   for (let i = 0; i < numberOfImages; i++) {
-    let img = {};
-    let idIndex = Math.floor(Math.random() * 100);
-    let imgId = imgIds[idIndex];
+    const img = {};
+    const idIndex = Math.floor(Math.random() * 100);
+    const imgId = imgIds[idIndex];
     img.full = utils.fullImgPath(imgId);
     img.small = utils.smallImgPath(imgId);
     img.thumbnail = utils.thumbImgPath(imgId);
@@ -25,32 +27,33 @@ const generateProductData = () => {
   product.name = faker.commerce.product();
 
   return product;
-}
+};
 
 const addProductToDb = (product) => {
-  let images = product.images;
+  const { images } = product;
+  // eslint-disable-next-line no-param-reassign
   delete product.images;
-  let promises = [];
+  const promises = [];
 
-  let PRODUCT_QUERY = `INSERT INTO products (name, is_favorite) 
+  const PRODUCT_QUERY = `INSERT INTO products (name, is_favorite) 
   VALUES ("${product.name}", ${product.is_favorite})`;
   return db.queryAsync(PRODUCT_QUERY)
     .then((results) => {
-      let product_id = results.insertId;
-      
+      const productId = results.insertId;
+
       for (let i = 0; i < images.length; i++) {
-        let image = images[i];
-        let IMAGE_QUERY = `INSERT INTO images (full, small, thumbnail, product_id)
-        VALUES ("${image.full}", "${image.small}", "${image.thumbnail}", ${product_id})`
+        const image = images[i];
+        const IMAGE_QUERY = `INSERT INTO images (full, small, thumbnail, product_id)
+        VALUES ("${image.full}", "${image.small}", "${image.thumbnail}", ${productId})`;
         promises.push(db.queryAsync(IMAGE_QUERY));
       }
     })
     .then(() => Promise.all(promises))
     .catch(console.log);
-}
+};
 
 const seedDb = () => {
-  let promises = [];
+  const promises = [];
 
   for (let i = 0; i < 100; i++) {
     promises.push(addProductToDb(generateProductData()));
@@ -59,8 +62,8 @@ const seedDb = () => {
   Promise.all(promises)
     .then(() => {
       db.end();
-      console.log("Seed complete");
-    })
-}
+      console.log('Seed complete');
+    });
+};
 
 seedDb();

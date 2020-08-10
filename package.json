@@ -7,7 +7,8 @@
     "test": "jest",
     "server": "nodemon --watch server --watch database ./server/index.js",
     "reset-db": "mysql -h 127.0.0.1 -ustudent -pstudent < database/schema.sql",
-    "seed-db": "node utils/database/seedDb.js"
+    "seed-db": "node utils/database/seedDb.js",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,7 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "faker": "^4.1.0",
-    "install": "^0.13.0",
+    "husky": "^4.2.5",
     "jest": "^26.2.2",
     "jest-extended": "^0.11.5",
     "morgan": "^1.10.0",
@@ -60,6 +61,11 @@
   },
   "jest": {
     "verbose": true,
-    "setupFilesAfterEnv": ["jest-extended"]
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
+  },
+  "lint-staged": {
+    "*.js": "eslint"
   }
 }

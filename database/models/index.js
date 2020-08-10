@@ -1,5 +1,5 @@
-const { getImageById } = require(`./getImages.js`);
+const { getImageById } = require('./getImages.js');
 
 module.exports = {
-  getImageById: getImageById
+  getImageById,
 }

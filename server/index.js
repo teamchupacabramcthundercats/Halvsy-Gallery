@@ -1,4 +1,5 @@
 const express = require('express');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const morgan = require('morgan');
 const { db } = require('../database/index.js');
 const models = require('../database/models');
@@ -8,19 +9,19 @@ const port = 3000;
 
 db.connect((err) => {
   if (err) {
-    console.log("Unable to connect to database");
+    console.log('Unable to connect to database');
   } else {
-    console.log("Successfully connected to `gallery` database");
+    console.log('Successfully connected to `gallery` database');
   }
 });
 
 app.use(morgan('dev'));
 
-//routes
-app.get('/api/images/:product_id', (req, res) => {
-  let { product_id } = req.params;
+// routes
+app.get('/api/images/:productId', (req, res) => {
+  const { productId } = req.params;
 
-  models.getImageById(product_id) 
+  models.getImageById(productId)
     .then((productData) => {
       res.send(productData);
     })
@@ -35,5 +36,5 @@ app.listen(port, () => {
 });
 
 module.exports = {
-  app: app
-}
+  app,
+};
