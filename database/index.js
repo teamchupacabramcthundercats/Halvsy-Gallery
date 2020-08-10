@@ -1,7 +1,5 @@
-const { db } = require('./connection.js')
+const { db } = require('./connection.js');
 
 module.exports = {
-  db: db
-}
-
-
+  db,
+};
