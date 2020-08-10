@@ -7,7 +7,8 @@
     "test": "jest",
     "server": "nodemon --watch server --watch database ./server/index.js",
     "reset-db": "mysql -h 127.0.0.1 -ustudent -pstudent < database/schema.sql",
-    "seed-db": "node utils/database/seedDb.js"
+    "seed-db": "node utils/database/seedDb.js",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -61,5 +62,8 @@
   "jest": {
     "verbose": true,
     "setupFilesAfterEnv": ["jest-extended"]
+  },
+  "lint-staged": {
+    "*.js": "eslint"
   }
 }
