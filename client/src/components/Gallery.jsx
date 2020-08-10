@@ -7,7 +7,7 @@ const Gallery = (props) => {
   const { images } = product;
 
   return (
-    <div>
+    <div className="gallery">
       This is sample text.
     </div>
   );

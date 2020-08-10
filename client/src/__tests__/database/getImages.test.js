@@ -1,7 +1,6 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-undef */
-const { db } = require('../../database/index.js');
-const models = require('../../database/models');
+/* eslint-disable */
+const { db } = require('../../../../database/index.js');
+const models = require('../../../../database/models');
 
 beforeAll(() => {
   db.connect();
