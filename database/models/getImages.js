@@ -7,7 +7,7 @@ const getProductDataById = (productId) => {
 };
 
 const getImageDataByProdId = (productId) => {
-  const QUERY = `SELECT full, small, thumbnail FROM images WHERE product_id = ${productId}`;
+  const QUERY = `SELECT full, small, thumbnail FROM images WHERE productId = ${productId}`;
   return db.queryAsync(QUERY);
 };
 

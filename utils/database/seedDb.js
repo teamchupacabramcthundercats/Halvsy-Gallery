@@ -8,7 +8,7 @@ db.connect();
 const utils = require('./utils.js');
 
 const generateProductData = () => {
-  const product = { is_favorite: 0 };
+  const product = { isFavorite: 0 };
   const images = [];
   const numberOfImages = Math.floor(Math.random() * 15 + 1);
   const imgIds = utils.generateImageIds();
@@ -35,15 +35,15 @@ const addProductToDb = (product) => {
   delete product.images;
   const promises = [];
 
-  const PRODUCT_QUERY = `INSERT INTO products (name, is_favorite) 
-  VALUES ("${product.name}", ${product.is_favorite})`;
+  const PRODUCT_QUERY = `INSERT INTO products (name, isFavorite) 
+  VALUES ("${product.name}", ${product.isFavorite})`;
   return db.queryAsync(PRODUCT_QUERY)
     .then((results) => {
       const productId = results.insertId;
 
       for (let i = 0; i < images.length; i++) {
         const image = images[i];
-        const IMAGE_QUERY = `INSERT INTO images (full, small, thumbnail, product_id)
+        const IMAGE_QUERY = `INSERT INTO images (full, small, thumbnail, productId)
         VALUES ("${image.full}", "${image.small}", "${image.thumbnail}", ${productId})`;
         promises.push(db.queryAsync(IMAGE_QUERY));
       }
