@@ -3,13 +3,27 @@ import React, { useState } from 'react';
 
 const MainView = (props) => {
   const { images } = props;
-  let [currentImage, setCurrentImage] = useState('');
+  const [currentImage, setCurrentImage] = useState('');
 
-  return (
-    <div>
-      {images.map((image) => <img className="main-image hidden" alt="product" src={image.full} /> )}
-    </div>
-  );
+  if (images === undefined) {
+    return (
+      <div>
+        Loading Images...
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {images.map((image) => (
+          <img
+            className="main-image hidden"
+            alt="product"
+            src={image.full}
+          />
+        ))}
+      </div>
+    );
+  }
 };
 
 export default MainView;
