@@ -63,4 +63,8 @@ const seedDb = () => {
     })
 }
 
+const testFn = () => {
+  console.log("This is a test function!  Hopefully eslint works!");
+}
+
 seedDb();
