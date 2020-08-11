@@ -17,7 +17,7 @@ const Gallery = (props) => {
       });
 
     return (
-      <div>
+      <div className="gallery">
         Loading...
       </div>
     );
