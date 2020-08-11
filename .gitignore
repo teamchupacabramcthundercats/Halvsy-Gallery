@@ -8,6 +8,7 @@ webpack.config.js
 
 ## utilities ##
 utils/photos/images
+utils/client/template.css
 
 ## Docker ##
 Dockerfile

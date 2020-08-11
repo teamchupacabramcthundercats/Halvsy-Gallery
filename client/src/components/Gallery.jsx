@@ -18,7 +18,7 @@ const Gallery = (props) => {
       });
 
     return (
-      <div className="gallery">
+      <div className="gallery flex-container">
         Loading...
       </div>
     );
@@ -26,7 +26,7 @@ const Gallery = (props) => {
     const { images } = product;
 
     return (
-      <div className="gallery">
+      <div className="gallery flex-container">
         <ThumbnailCarousel images={images} />
         <MainView images={images} />
       </div>

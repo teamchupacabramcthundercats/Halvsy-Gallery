@@ -6,7 +6,7 @@ const ThumbnailList = (props) => {
   const { images } = props;
 
   return (
-    <ul className="thumbnail-carousel">
+    <ul className="thumbnail-list flex-container">
       {images.map((image, key) => (
         <ThumbnailListItem key={`tn-${key}`} id={key} image={image} />
       ))}
