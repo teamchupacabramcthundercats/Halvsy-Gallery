@@ -11,3 +11,9 @@ utils/photos/images
 
 ## Docker ##
 Dockerfile
+
+## VSCode ##
+.vscode
+
+## Jest ##
+coverage

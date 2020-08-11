@@ -20,4 +20,4 @@ module.exports.fullImgPath = (imgId) => path.join(IMG_PATH, `${imgId}.jpg`);
 
 module.exports.smallImgPath = (imgId) => path.join(IMG_PATH, 'small', `${imgId}-sm.jpg`);
 
-module.exports.thumbImgPath = (imgId) => path.join(IMG_PATH, 'thumbnail', `${imgId}-tn.jpg`);
+module.exports.thumbImgPath = (imgId) => path.join(IMG_PATH, 'thumbnails', `${imgId}-tn.jpg`);

@@ -4,7 +4,6 @@ import { shallow, mount, render } from 'enzyme';
 import axios from 'axios';
 
 import Gallery from '../../../client/src/components/Gallery.jsx';
-// import MainView from '../../../client/src/components/MainView.jsx';
 
 jest.mock('axios');
 

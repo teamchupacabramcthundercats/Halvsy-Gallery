@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import MainView from './MainView';
+import ThumbnailCarousel from './ThumbnailCarousel';
 
 const Gallery = (props) => {
   const { productId } = props;
@@ -26,6 +27,7 @@ const Gallery = (props) => {
 
     return (
       <div className="gallery">
+        <ThumbnailCarousel images={images} />
         <MainView images={images} />
       </div>
     );
