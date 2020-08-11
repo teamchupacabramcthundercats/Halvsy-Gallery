@@ -4,7 +4,7 @@ import Gallery from './components/Gallery';
 
 const App = () => (
   <div>
-    <Gallery productId="1" />
+    <Gallery productId="2" />
   </div>
 );
 
