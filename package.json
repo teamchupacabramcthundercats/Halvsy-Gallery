@@ -4,7 +4,7 @@
   "description": "Gallery service for Etsy clone as part of the GHRSEA Front End Capstone project.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "build": "webpack",
     "build-dev": "webpack -d --watch",
     "server": "nodemon --watch server --watch database ./server/index.js",

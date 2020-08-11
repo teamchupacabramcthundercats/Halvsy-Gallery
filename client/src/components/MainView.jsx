@@ -8,43 +8,35 @@ const MainView = (props) => {
   const [currentImage, setCurrentImage] = useState(images[0]);
   let counter = 0;
 
-  if (images === undefined) {
-    return (
-      <div>
-        Loading Images...
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        {images.map((image) => {
-          if (image === currentImage) {
-            return (
-              <img
-                key={counter++}
-                id={`main${counter}`}
-                className="main-image"
-                style={{ visibility: 'visible' }}
-                alt="product"
-                src={image.full}
-              />
-            );
-          } else {
-            return (
-              <img
-                key={counter++}
-                id={`main${counter}`}
-                className="main-image"
-                style={{ visibility: 'hidden' }}
-                alt="product"
-                src={image.full}
-              />
-            );
-          }
-        })}
-      </div>
-    );
-  }
+  return (
+    <div className="main-view">
+      {images.map((image) => {
+        if (image === currentImage) {
+          return (
+            <img
+              key={counter++}
+              id={`main${counter}`}
+              className="main-image"
+              style={{ visibility: 'visible' }}
+              alt="product"
+              src={image.full}
+            />
+          );
+        } else {
+          return (
+            <img
+              key={counter++}
+              id={`main${counter}`}
+              className="main-image"
+              style={{ visibility: 'hidden' }}
+              alt="product"
+              src={image.full}
+            />
+          );
+        }
+      })}
+    </div>
+  );
 };
 
 export default MainView;
