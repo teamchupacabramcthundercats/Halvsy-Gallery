@@ -16,6 +16,7 @@ db.connect((err) => {
 });
 
 app.use(morgan('dev'));
+app.use(express.static('./public'));
 
 // routes
 app.get('/api/images/:productId', (req, res) => {

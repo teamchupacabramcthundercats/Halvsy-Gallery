@@ -1,5 +1,4 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-undef */
+/* eslint-disable */
 const { db } = require('../../database/index.js');
 const models = require('../../database/models');
 
