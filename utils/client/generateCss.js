@@ -8,7 +8,6 @@ module.exports.generateCss = () => {
     margin-right: 8px;
   }
   
-  
   .flex-container {
     display: flex;
   }

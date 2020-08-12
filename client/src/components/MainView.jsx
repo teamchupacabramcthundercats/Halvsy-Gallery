@@ -3,7 +3,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import MainViewImage from './MainViewImage';
-import useCurrentImage from '../hooks/useCurrentImage';
 
 const MainView = (props) => {
   const { images, currentImage } = props;
