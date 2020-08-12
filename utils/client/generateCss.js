@@ -57,6 +57,10 @@ module.exports.generateCss = () => {
     width: 100%;
     height: 60px;
   }
+  
+  .hidden-modal {
+    display: hidden;
+  }
   `;
 
   const css = document.createElement('style');
