@@ -1,6 +1,5 @@
 /* eslint-disable no-else-return */
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import MainView from './MainView';
@@ -20,16 +19,10 @@ const Gallery = (props) => {
     setCurrentMainView(images[id]);
   };
 
-  const processResponse = (product) => {
-    const { images } = product;
-    setProduct(product);
-    setCurrentMainView(images[0]);
-  };
-
   if (product === undefined) {
     axios.get(`/api/images/${productId}`)
       .then((response) => {
-        processResponse(response.data);
+        setProduct(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -42,6 +35,9 @@ const Gallery = (props) => {
     );
   } else {
     const { images } = product;
+    if (!currentMainView) {
+      setCurrentMainView(images[0]);
+    }
 
     return (
       <div className="gallery flex-container">

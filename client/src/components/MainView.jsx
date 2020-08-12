@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-else-return */
-/* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import MainViewImage from './MainViewImage';
 
 const MainView = (props) => {
@@ -33,6 +33,11 @@ const MainView = (props) => {
       })}
     </div>
   );
+};
+
+MainView.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default MainView;

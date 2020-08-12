@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MainViewImage = (props) => {
   const { image, counter, display } = props;
@@ -15,6 +16,12 @@ const MainViewImage = (props) => {
       src={image.full}
     />
   );
+};
+
+MainViewImage.propTypes = {
+  image: PropTypes.objectOf(PropTypes.string).isRequired,
+  counter: PropTypes.number.isRequired,
+  display: PropTypes.string.isRequired,
 };
 
 export default MainViewImage;

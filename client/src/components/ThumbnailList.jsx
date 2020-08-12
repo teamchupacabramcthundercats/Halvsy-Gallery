@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import ThumbnailListItem from './ThumbnailListItem';
+import PropTypes from 'prop-types';
 
 const ThumbnailList = (props) => {
   const { images, onClickHandler } = props;

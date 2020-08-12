@@ -9,8 +9,7 @@
     "build-dev": "webpack -d --watch",
     "server": "nodemon --watch server --watch database ./server/index.js",
     "reset-db": "mysql -h 127.0.0.1 -ustudent -pstudent < database/schema.sql",
-    "seed-db": "node utils/database/seedDb.js",
-    "precommit": "lint-staged"
+    "seed-db": "node utils/database/seedDb.js"
   },
   "repository": {
     "type": "git",
@@ -70,6 +69,11 @@
       "<rootDir>/setupTests.js",
       "jest-extended"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.js": "eslint"

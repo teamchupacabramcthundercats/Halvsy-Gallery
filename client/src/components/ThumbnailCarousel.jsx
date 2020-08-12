@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ThumbnailList from './ThumbnailList';
+import PropTypes from 'prop-types';
 
 const ThumbnailCarousel = (props) => {
   const { images, onClickHandler } = props;
