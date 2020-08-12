@@ -1,11 +1,11 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-else-return */
-/* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import MainViewImage from './MainViewImage';
 
 const MainView = (props) => {
-  const { images } = props;
-  const [currentImage, setCurrentImage] = useState(images[0]);
+  const { images, currentImage } = props;
   let counter = 0;
 
   return (
@@ -13,30 +13,31 @@ const MainView = (props) => {
       {images.map((image) => {
         if (image === currentImage) {
           return (
-            <img
+            <MainViewImage
               key={counter++}
-              id={`main${counter}`}
-              className="main-image"
-              style={{ visibility: 'visible' }}
-              alt="product"
-              src={image.full}
+              counter={counter}
+              image={image}
+              display="inline-block"
             />
           );
         } else {
           return (
-            <img
+            <MainViewImage
               key={counter++}
-              id={`main${counter}`}
-              className="main-image"
-              style={{ visibility: 'hidden' }}
-              alt="product"
-              src={image.full}
+              counter={counter}
+              image={image}
+              display="none"
             />
           );
         }
       })}
     </div>
   );
+};
+
+MainView.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default MainView;
