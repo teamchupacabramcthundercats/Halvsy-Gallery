@@ -3,6 +3,10 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import ThumbnailCarousel from '../../../client/src/components/ThumbnailCarousel';
 
+afterAll(() => {
+  jest.restoreAllMocks();
+})
+
 const sampleImages = [
   {
     full: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/044.jpg',
@@ -16,9 +20,7 @@ const sampleImages = [
   },
 ]
 
-const onThumbnailClick = () => {
-  console.log('click!');
-}
+const onThumbnailClick = jest.fn();
 
 describe('ThumbnailCarousel', () => {
   it('should render without error', () => {
@@ -38,7 +40,7 @@ describe('ThumbnailCarousel', () => {
         onClickHandler={onThumbnailClick}
       />
     );
-    // console.log(thumbnailCarousel.find('ThumbnailList').length.debug())
+    
     expect(thumbnailCarousel.find('ThumbnailList').length).toBe(1);
   });
 
@@ -49,9 +51,56 @@ describe('ThumbnailCarousel', () => {
         onClickHandler={onThumbnailClick}
       />
     );
-    // console.log(thumbnailCarousel.find('ThumbnailList').length.debug())
+    
     expect(thumbnailCarousel.find('ThumbnailList').prop('images')).toEqual(sampleImages);
     expect(thumbnailCarousel.find('ThumbnailList').prop('onClickHandler')).toEqual(onThumbnailClick);
+  });
+
+  it('should scroll up when mouse over event is triggered', () => {
+    const thumbnailCarousel = mount(
+      <ThumbnailCarousel
+        images={sampleImages}
+        onClickHandler={onThumbnailClick}
+      />
+    );
+    
+    const scrollIntoViewMock = jest.fn();
+    let targetId = '';
+    let firstRun = true;
+    jest.spyOn(global.document, 'getElementById').mockImplementation((id) => { 
+      if (firstRun) {
+        targetId = id;
+        firstRun = false;
+      }
+      return { scrollIntoView: scrollIntoViewMock }
+    });
+    thumbnailCarousel.find('.thumbnail-scroll-up').props().onMouseOver();
+    expect(scrollIntoViewMock).toHaveBeenCalledTimes(1);
+    expect(targetId).toEqual('thumbnail-0');
+  });
+
+  it('should scroll down when mouse over event is triggered', () => {
+    const thumbnailCarousel = mount(
+      <ThumbnailCarousel
+        images={sampleImages}
+        onClickHandler={onThumbnailClick}
+      />
+    );
+    
+    const scrollIntoViewMock = jest.fn();
+    let targetId = '';
+    let firstRun = true;
+    jest.spyOn(global.document, 'getElementById').mockImplementation((id) => { 
+      if (!firstRun) {
+        targetId = id;
+      } else {
+        firstRun = false;
+      }
+      return { scrollIntoView: scrollIntoViewMock }
+    });
+    thumbnailCarousel.find('.thumbnail-scroll-down').props().onMouseOver();
+    expect(scrollIntoViewMock).toHaveBeenCalledTimes(1);
+    expect(targetId).toEqual('thumbnail-1');
   });
 
 });
