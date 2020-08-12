@@ -3,10 +3,10 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import MainViewImage from './MainViewImage';
+import useCurrentImage from '../hooks/useCurrentImage';
 
 const MainView = (props) => {
-  const { images } = props;
-  const [currentImage, setCurrentImage] = useState(images[0]);
+  const { images, currentImage } = props;
   let counter = 0;
 
   return (
@@ -18,7 +18,7 @@ const MainView = (props) => {
               key={counter++}
               counter={counter}
               image={image}
-              visibility="visible"
+              display="inline-block"
             />
           );
         } else {
@@ -27,7 +27,7 @@ const MainView = (props) => {
               key={counter++}
               counter={counter}
               image={image}
-              visibility="hidden"
+              display="none"
             />
           );
         }

@@ -1,13 +1,13 @@
 import React from 'react';
 
 const MainViewImage = (props) => {
-  const { image, counter, visibility } = props;
+  const { image, counter, display } = props;
   return (
     <img
       id={`main${counter}`}
       className="main-image"
       style={{
-        visibility,
+        display,
         width: 'auto',
         height: 'auto',
       }}
