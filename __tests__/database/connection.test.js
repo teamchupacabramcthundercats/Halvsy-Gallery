@@ -3,6 +3,7 @@ const { db } = require('../../database/connection.js');
 const validQuery = 'SELECT * FROM products';
 const invalidQuery = 'SELECT nothing FROM invalid';
 const sampleValidResponse = { valid: true };
+
 const mockQuery = jest.spyOn(db, 'query');
 
 mockQuery.mockImplementation((query, callback) => {
