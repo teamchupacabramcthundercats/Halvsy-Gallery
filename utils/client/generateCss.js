@@ -1,20 +1,13 @@
 module.exports.generateCss = () => {
   const styles = `
   .thumbnail-carousel-container {
-    align-items: flex-start;
-    justify-content: flex-start;
+    position: relative;
     box-sizing: border-box;
-    scrollbar-width: none;
-    overflow: scroll;
-    -ms-overflow-style: none;
     width: 75px;
     height: 600px;
     margin-right: 8px;
   }
   
-  .thumbnail-carousel-container::-webkit-scrollbar {
-    display: none;
-  }
   
   .flex-container {
     display: flex;
@@ -37,8 +30,33 @@ module.exports.generateCss = () => {
     align-items: flex-start;
     box-sizing: border-box;
     list-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
+    -ms-overflow-style: none;
     padding: 0px;
     margin: 0px;
+  }
+  
+  .thumbnail-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .thumbnail-scroll-up {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    width: 100%;
+    height: 60px;
+  }
+  
+  .thumbnail-scroll-down {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    width: 100%;
+    height: 60px;
   }
   `;
 
