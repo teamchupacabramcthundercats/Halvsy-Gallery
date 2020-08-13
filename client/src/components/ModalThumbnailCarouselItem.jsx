@@ -6,7 +6,7 @@ const ModalThumbnailCarouselItem = (props) => {
   const { image, onClickHandler, id } = props;
 
   return (
-    <ul>
+    <li>
       <img
         id={`thumbnail-${id}`}
         src={image.small}
@@ -14,7 +14,7 @@ const ModalThumbnailCarouselItem = (props) => {
         onClick={onClickHandler}
         onKeyPress={onClickHandler}
       />
-    </ul>
+    </li>
   );
 };
 
