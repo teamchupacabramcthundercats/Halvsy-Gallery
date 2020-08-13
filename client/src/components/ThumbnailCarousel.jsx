@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import ThumbnailList from './ThumbnailList';
+import React from 'react';
 import PropTypes from 'prop-types';
+import ThumbnailList from './ThumbnailList';
 
 const ThumbnailCarousel = (props) => {
   const { images, onClickHandler } = props;
@@ -38,6 +38,11 @@ const ThumbnailCarousel = (props) => {
       />
     </div>
   );
+};
+
+ThumbnailCarousel.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onClickHandler: PropTypes.func.isRequired,
 };
 
 export default ThumbnailCarousel;

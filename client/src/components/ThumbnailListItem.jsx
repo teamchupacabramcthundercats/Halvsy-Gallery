@@ -19,4 +19,10 @@ const ThumbnailListItem = (props) => {
   );
 };
 
+ThumbnailListItem.propTypes = {
+  image: PropTypes.objectOf(PropTypes.string).isRequired,
+  onClickHandler: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+};
+
 export default ThumbnailListItem;
