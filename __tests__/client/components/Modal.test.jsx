@@ -23,7 +23,15 @@ const setShowModalMock = jest.fn((newValue) => {
 
 describe('Modal', () => {
   it('should render without any errors', () => {
-    const wrapper = shallow(<Modal images={sampleImages} showModal={showModalMock} setShowModal={setShowModalMock} />);
+    const wrapper = shallow(
+      <Modal 
+        images={sampleImages}
+        currentImage={sampleImages[0]}
+        setCurrentImage={() => {}}
+        showModal={showModalMock} 
+        setShowModal={setShowModalMock} 
+      />
+    );
 
     expect(wrapper.is('.modal')).toBe(true);
   });
@@ -31,7 +39,9 @@ describe('Modal', () => {
   it('should not initially be visible', () => {
     const wrapper = shallow(
       <Modal 
-        images={sampleImages} 
+        images={sampleImages}
+        currentImage={sampleImages[0]}
+        setCurrentImage={() => {}}
         showModal={showModalMock} 
         setShowModal={setShowModalMock} 
       />
@@ -43,7 +53,9 @@ describe('Modal', () => {
   it('when hidden, should toggle visibility when clicked', () => {
     const wrapper = shallow(
       <Modal 
-        images={sampleImages} 
+        images={sampleImages}
+        currentImage={sampleImages[0]}
+        setCurrentImage={() => {}}
         showModal={showModalMock} 
         setShowModal={setShowModalMock} 
       />
@@ -54,9 +66,11 @@ describe('Modal', () => {
   });
 
   it('when visible, should toggle visibility when clicked', () => {
-const wrapper = shallow(
+    const wrapper = shallow(
       <Modal 
-        images={sampleImages} 
+        images={sampleImages}
+        currentImage={sampleImages[0]}
+        setCurrentImage={() => {}}
         showModal={showModalMock} 
         setShowModal={setShowModalMock} 
       />
@@ -69,9 +83,11 @@ const wrapper = shallow(
   });
 
   it('should become visible when showModal prop is true', () => {
-const wrapper = shallow(
+    const wrapper = shallow(
       <Modal 
-        images={sampleImages} 
+        images={sampleImages}
+        currentImage={sampleImages[0]}
+        setCurrentImage={() => {}}
         showModal={!showModalMock} 
         setShowModal={setShowModalMock} 
       />

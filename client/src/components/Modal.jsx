@@ -1,9 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import ModalMainView from './ModalMainView';
+import ModalThumbnailCarousel from './ModalThumbnailCarousel';
 
 const Modal = (props) => {
-  const { images, showModal, setShowModal } = props;
+  const {
+    images,
+    currentImage,
+    setCurrentImage,
+    showModal,
+    setShowModal,
+  } = props;
   const [hidden, setHidden] = useState(true);
 
   if (showModal) {
@@ -24,16 +32,11 @@ const Modal = (props) => {
   if (hidden) {
     return (
       <div
-        id="modal"
+        id="hidden-modal"
         className="modal hidden-modal"
         onClick={onClickHandler}
         onKeyPress={onClickHandler}
-      >
-        <div className="flex-container">
-          <div>Placeholder modal main view div</div>
-          <div>Placeholder modal thumbnail carousel div</div>
-        </div>
-      </div>
+      />
     );
   }
 
@@ -45,8 +48,8 @@ const Modal = (props) => {
       onKeyPress={onClickHandler}
     >
       <div className="flex-container">
-        <div>Placeholder modal main view div</div>
-        <div>Placeholder modal thumbnail carousel div</div>
+        <ModalMainView images={images} currentImage={currentImage} />
+        <ModalThumbnailCarousel images={images} onClickHandler={setCurrentImage} />
       </div>
     </div>
   );
@@ -54,6 +57,8 @@ const Modal = (props) => {
 
 Modal.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
+  setCurrentImage: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
   setShowModal: PropTypes.func.isRequired,
 };

@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 
 const MainViewImage = (props) => {
   const {
-    image, counter, display, onClickHandler,
+    image,
+    counter,
+    display,
+    onClickHandler,
   } = props;
 
   return (

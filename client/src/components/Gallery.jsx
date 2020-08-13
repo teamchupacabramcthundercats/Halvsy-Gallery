@@ -22,7 +22,8 @@ const Gallery = (props) => {
     let { id } = event.target;
     const { images } = state.product;
 
-    id = id.substr(-1);
+    id = id.split('-');
+    id = id.pop();
 
     setState({ currentMainView: images[id] });
   };
@@ -52,6 +53,8 @@ const Gallery = (props) => {
       <div className="gallery flex-container">
         <Modal
           images={images}
+          currentImage={state.currentMainView}
+          setCurrentImage={onThumbnailClick}
           showModal={showModal}
           setShowModal={setShowModal}
         />
