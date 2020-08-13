@@ -37,6 +37,9 @@ const Gallery = (props) => {
 
     return (
       <div className="gallery flex-container">
+        <div className="modal" style={{ display: 'none' }} />
+        <div className="thumbnail-carousel" onClickHandler={onThumbnailClick} style={{ display: 'none' }} />
+        <div className="main-view" onClickToShowModal={onClickToShowModal} style={{ display: 'none' }} />
         Loading...
       </div>
     );

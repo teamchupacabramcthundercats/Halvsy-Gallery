@@ -9,13 +9,31 @@ const sampleImage = {
   thumbnail: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/thumbnail/044-tn.jpg',
 };
 
-test('MainViewImage should render an image', () => {
-  const mainViewImage = shallow(
-    <MainViewImage
-      counter={0}
-      image={sampleImage}
-      display="inline-block"
-    />
-  );
-  expect(mainViewImage.is('img')).toBe(true);
+const mockOnClick = jest.fn();
+
+describe('MainViewImage', () => {
+  test('should render an image', () => {
+    const mainViewImage = shallow(
+      <MainViewImage
+        counter={0}
+        image={sampleImage}
+        display="inline-block"
+      />
+    );
+    expect(mainViewImage.is('img')).toBe(true);
+  });
+
+  test('should execute the onClick function on click event', () => {
+    const mainViewImage = shallow(
+      <MainViewImage
+        counter={0}
+        image={sampleImage}
+        display="inline-block"
+        onClickHandler={mockOnClick}
+      />
+    );
+    mainViewImage.simulate('click');
+    expect(mockOnClick).toBeCalled();
+  });
+
 });

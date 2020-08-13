@@ -1,11 +1,18 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useState } from 'react';
 import { shallow, mount, render } from 'enzyme';
 import axios from 'axios';
 
 import Gallery from '../../../client/src/components/Gallery.jsx';
 
 jest.mock('axios');
+const useStateMock = jest.fn(useState);
+const setStateMock = jest.fn();
+useStateMock.mockImplementation((value) => [value, setStateMock]);
+
+afterAll(() => {
+  jest.restoreAllMocks();
+})
 
 const sampleResponse = { data: {
     "id": 1,
@@ -21,8 +28,17 @@ const sampleResponse = { data: {
   }
 };
 
-test('Gallery should render without throwing an error.', () => {
-  axios.get.mockResolvedValue(sampleResponse);
-  const gallery = shallow(<Gallery productId="1" />);
-  expect(gallery.is('.gallery')).toBe(true);
-});
+describe('Gallery', () => {
+  it('should render without throwing an error.', () => {
+    axios.get.mockResolvedValueOnce(sampleResponse);
+    const gallery = shallow(<Gallery productId="1" />);
+    expect(gallery.is('.gallery')).toBe(true);
+  });
+  
+  it('should return an error if get request fails.', () => {
+    axios.get.mockImplementation(() => Promise.reject("Error retreiving data"))
+    const gallery = shallow(<Gallery productId="1" />);
+    expect(gallery.text()).toBe('Loading...');
+  });
+
+})
