@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-else-return */
 import React, { useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -38,8 +40,8 @@ const Gallery = (props) => {
     return (
       <div className="gallery flex-container">
         <div className="modal" style={{ display: 'none' }} />
-        <div className="thumbnail-carousel" onClickHandler={onThumbnailClick} style={{ display: 'none' }} />
-        <div className="main-view" onClickToShowModal={onClickToShowModal} style={{ display: 'none' }} />
+        <div className="thumbnail-carousel-container" onClick={onThumbnailClick} style={{ display: 'none' }} />
+        <div className="main-view" onClick={onClickToShowModal} style={{ display: 'none' }} />
         Loading...
       </div>
     );
