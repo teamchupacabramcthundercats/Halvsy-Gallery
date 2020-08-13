@@ -44,7 +44,7 @@ module.exports.generateCss = () => {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 90;
+    z-index: 2;
     width: 100%;
     height: 60px;
   }
@@ -53,13 +53,24 @@ module.exports.generateCss = () => {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 90;
+    z-index: 2;
     width: 100%;
     height: 60px;
   }
   
+  .modal {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 3;
+  }
+  
   .hidden-modal {
-    display: hidden;
+    display: none;
   }
   `;
 

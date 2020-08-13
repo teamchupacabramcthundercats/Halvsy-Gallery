@@ -1,14 +1,20 @@
 /* eslint-disable no-else-return */
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import MainView from './MainView';
 import ThumbnailCarousel from './ThumbnailCarousel';
+import Modal from './Modal';
 
 const Gallery = (props) => {
   const { productId } = props;
   const reducer = (state, newState) => ({ ...state, ...newState });
   const [state, setState] = useReducer(reducer, { product: undefined, currentMainView: undefined });
+  const [showModal, setShowModal] = useState(false);
+
+  const onClickToShowModal = () => {
+    setShowModal(true);
+  };
 
   const onThumbnailClick = (event) => {
     let { id } = event.target;
@@ -39,6 +45,11 @@ const Gallery = (props) => {
 
     return (
       <div className="gallery flex-container">
+        <Modal
+          images={images}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
         <ThumbnailCarousel
           images={images}
           onClickHandler={onThumbnailClick}
@@ -46,6 +57,7 @@ const Gallery = (props) => {
         <MainView
           images={images}
           currentImage={state.currentMainView}
+          onClickToShowModal={onClickToShowModal}
         />
       </div>
     );

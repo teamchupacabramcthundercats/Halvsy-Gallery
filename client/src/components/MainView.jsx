@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import MainViewImage from './MainViewImage';
 
 const MainView = (props) => {
-  const { images, currentImage } = props;
+  const { images, currentImage, onClickToShowModal } = props;
   let counter = 0;
 
   return (
@@ -18,6 +18,7 @@ const MainView = (props) => {
               counter={counter}
               image={image}
               display="inline-block"
+              onClickHandler={onClickToShowModal}
             />
           );
         } else {
@@ -38,6 +39,7 @@ const MainView = (props) => {
 MainView.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
+  onClickToShowModal: PropTypes.func.isRequired,
 };
 
 export default MainView;

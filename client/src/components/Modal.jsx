@@ -1,14 +1,22 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Modal = (props) => {
-  const { images } = props;
+  const { images, showModal, setShowModal } = props;
   const [hidden, setHidden] = useState(true);
+
+  if (showModal) {
+    if (hidden) {
+      setHidden(false);
+    }
+  }
 
   const onClickHandler = () => {
     if (hidden) {
       setHidden(false);
     } else {
+      setShowModal(false);
       setHidden(true);
     }
   };
@@ -45,7 +53,9 @@ const Modal = (props) => {
 };
 
 Modal.propTypes = {
-
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  showModal: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
 };
 
 export default Modal;
