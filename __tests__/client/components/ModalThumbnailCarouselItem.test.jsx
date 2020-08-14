@@ -23,6 +23,7 @@ describe('ModalThumbnailCarouselItem', () => {
         id={0}
         image={sampleImages[0]}
         onClickHandler={() => {}}
+        sizeClass="thumb-lg"
       />
     );
 

@@ -70,15 +70,15 @@
 /* ===== MODAL ===== */
 
 .modal {
-  overflow-y: hidden;
-  position: absolute;
+  box-sizing: border-box;
+  position: fixed;
   display: flex;
   justify-content: center;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(63, 63, 63, 0.9);
   z-index: 3;
 }
 
@@ -88,36 +88,73 @@
 
 .modal-content {
   display: flex;
-  height: 100%;
-  width: 80%;
+  height: 100vh;
+  width: 80vw;
+  justify-content: center;
 }
+
+.btn:active, .btn:focus{
+  appearance: none;
+  position: absolute;
+  outline: 0;
+  transition: transform 200ms cubic-bezier(0.345, 0.115, 0.135, 1.42),background 150ms ease-out,box-shadow 200ms ease-out;
+}
+
+.btn {
+  color: white;
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid rgb(34, 34, 34);
+  border-radius: 24px;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 12px 12px 0 0;
+  padding: 12px;
+}
+
+.btn-close-modal {
+  top: 0;
+  right: 0;
+}
+
+
 
 /* ===== MODAL MAIN VIEW ===== */
 
 .modal-main-view {
+  position: relative;
   margin: 60px 12px 24px 12px;
   display: flex;
-  width: 100%;
   justify-content: center;
 }
 
+.modal-main-view img {
+  object-fit: cover;
+  width: 100%;
+  zoom: 2;
+  border-radius: 6px;
+}
+
 /* ===== MODAL CAROUSEL ===== */
+
+
+.modal-thumbnail-carousel {
+  padding-top: 60px;
+  margin: 0;
+}
 
 .modal-thumbnail-list {
   align-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
-  overflow: auto;
+  overflow-y: auto;
   height: 100vh;
-  max-width: 257px;
-  min-width: 155px;
+  width: 257px;
   padding: 0;
-  margin: 0;
-}
-
-.modal-thumbnail-carousel {
-  padding-top: 60px;
   margin: 0;
 }
 
