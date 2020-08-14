@@ -3,12 +3,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ModalThumbnailCarouselItem = (props) => {
-  const { image, onClickHandler, id } = props;
+  const {
+    image,
+    onClickHandler,
+    id,
+    sizeClass,
+  } = props;
 
   return (
-    <li className="round-corners">
+    <li>
       <img
         id={`thumbnail-${id}`}
+        className={`round-corners ${sizeClass}`}
         src={image.small}
         alt="Product Thumbnail"
         onClick={onClickHandler}
@@ -22,6 +28,7 @@ ModalThumbnailCarouselItem.propTypes = {
   image: PropTypes.objectOf(PropTypes.string).isRequired,
   onClickHandler: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
+  sizeClass: PropTypes.string.isRequired,
 };
 
 export default ModalThumbnailCarouselItem;

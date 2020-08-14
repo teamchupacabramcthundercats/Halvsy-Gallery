@@ -29,13 +29,11 @@ const Modal = (props) => {
     }
   };
 
-  useEffect(() => {
-    window.onclick = (event) => {
-      if (event.target.tagName !== 'IMG' && hidden === false) {
-        toggleModal();
-      }
-    };
-  });
+  window.onclick = (event) => {
+    if (event.target.tagName !== 'IMG' && hidden === false) {
+      toggleModal();
+    }
+  };
 
   if (hidden) {
     return (
@@ -53,8 +51,10 @@ const Modal = (props) => {
       id="modal"
       className="modal"
     >
-      <ModalMainView images={images} currentImage={currentImage} />
-      <ModalThumbnailCarousel images={images} onClickHandler={setCurrentImage} />
+      <div className="modal-content">
+        <ModalMainView images={images} currentImage={currentImage} />
+        <ModalThumbnailCarousel images={images} onClickHandler={setCurrentImage} />
+      </div>
     </div>
   );
 };

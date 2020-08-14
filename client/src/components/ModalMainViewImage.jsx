@@ -15,8 +15,7 @@ const ModalMainViewImage = (props) => {
       className="modal-main-image"
       style={{
         display,
-        width: 'auto',
-        height: 'auto',
+        borderRadios: '6px',
       }}
       alt="product"
       src={image.full}

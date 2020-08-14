@@ -9,14 +9,27 @@ const ModalThumbnailCarousel = (props) => {
   return (
     <div className="modal-thumbnail-carousel flex-container">
       <ul className="modal-thumbnail-list flex-container">
-        {images.map((image, key) => (
-          <ModalThumbnailCarouselItem
-            key={`tn-${key}`}
-            id={key}
-            image={image}
-            onClickHandler={onClickHandler}
-          />
-        ))}
+        {images.map((image, key) => {
+          let size;
+          if ((key % 3) === 0) {
+            size = 'thumb-lg';
+          } else if ((key % 3) === 1) {
+            size = 'thumb-sm thumb-l';
+          }
+          else {
+            size = 'thumb-sm thumb-r';
+          }
+
+          return (
+            <ModalThumbnailCarouselItem
+              key={`tn-${key}`}
+              id={key}
+              sizeClass={size}
+              image={image}
+              onClickHandler={onClickHandler}
+            />
+          );
+        })}
       </ul>
     </div>
   );

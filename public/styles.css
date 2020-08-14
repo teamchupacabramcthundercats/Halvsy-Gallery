@@ -1,9 +1,8 @@
-.thumbnail-carousel-container {
-  position: relative;
-  box-sizing: border-box;
-  width: 75px;
-  height: 600px;
-  margin-right: 8px;
+/* ===== GENERAL ===== */
+
+.round-corners {
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .flex-container {
@@ -16,10 +15,22 @@
   height: auto;
 }
 
+/* ===== MAIN IMAGE VIEW ===== */
+
 .main-view {
   box-sizing: border-box;
   width: 800px;
   height: 600px;
+}
+
+/* ===== MAIN CAROUSEL ===== */
+
+.thumbnail-carousel-container {
+  position: relative;
+  box-sizing: border-box;
+  width: 75px;
+  height: 600px;
+  margin-right: 8px;
 }
 
 .thumbnail-list {
@@ -56,9 +67,13 @@
   height: 60px;
 }
 
+/* ===== MODAL ===== */
+
 .modal {
+  overflow-y: hidden;
   position: absolute;
   display: flex;
+  justify-content: center;
   top: 0;
   left: 0;
   height: 100vh;
@@ -71,22 +86,57 @@
   display: none;
 }
 
-.modal-thumbnail-list {
-  flex-direction: column;
-  list-style: none;
-  overflow: scroll;
-  height: 100vh;
+.modal-content {
+  display: flex;
+  height: 100%;
+  width: 80%;
 }
+
+/* ===== MODAL MAIN VIEW ===== */
 
 .modal-main-view {
   margin: 60px 12px 24px 12px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===== MODAL CAROUSEL ===== */
+
+.modal-thumbnail-list {
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  overflow: auto;
+  height: 100vh;
+  max-width: 257px;
+  min-width: 155px;
+  padding: 0;
+  margin: 0;
 }
 
 .modal-thumbnail-carousel {
   padding-top: 60px;
+  margin: 0;
 }
 
-.round-corners {
-  border-radius: 6px;
-  overflow: hidden;
+.thumb-lg {
+  height: 228px;
+  width: 228px;
+  margin-bottom: 12px;
+}
+
+.thumb-sm {
+  height: 108px;
+  height: 108px;
+}
+
+.thumb-l {
+  margin-bottom: 12px;
+  margin-right: 12px;
+}
+
+.thumb-r {
+  margin-bottom: 12px;
 }
