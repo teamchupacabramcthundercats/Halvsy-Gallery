@@ -6,7 +6,7 @@ const ModalThumbnailCarouselItem = (props) => {
   const { image, onClickHandler, id } = props;
 
   return (
-    <li>
+    <li className="round-corners">
       <img
         id={`thumbnail-${id}`}
         src={image.small}

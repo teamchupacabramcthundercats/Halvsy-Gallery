@@ -71,15 +71,12 @@ describe('Modal', () => {
         images={sampleImages}
         currentImage={sampleImages[0]}
         setCurrentImage={() => {}}
-        showModal={showModalMock} 
+        showModal={true} 
         setShowModal={setShowModalMock} 
       />
     );
 
-    wrapper.simulate('click');
     expect(wrapper.is('.hidden-modal')).toBe(false);
-    wrapper.simulate('click');
-    expect(wrapper.is('.hidden-modal')).toBe(true);
   });
 
   it('should become visible when showModal prop is true', () => {

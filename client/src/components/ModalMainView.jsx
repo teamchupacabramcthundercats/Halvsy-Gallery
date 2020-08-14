@@ -8,7 +8,7 @@ const ModalMainView = (props) => {
   let counter = 0;
 
   return (
-    <div className="modal-main-view">
+    <div className="modal-main-view inner-modal">
       {images.map((image) => {
         if (image === currentImage) {
           return (

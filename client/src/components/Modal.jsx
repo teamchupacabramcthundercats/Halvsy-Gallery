@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ModalMainView from './ModalMainView';
 import ModalThumbnailCarousel from './ModalThumbnailCarousel';
@@ -20,7 +20,7 @@ const Modal = (props) => {
     }
   }
 
-  const onClickHandler = () => {
+  const toggleModal = () => {
     if (hidden) {
       setHidden(false);
     } else {
@@ -29,13 +29,21 @@ const Modal = (props) => {
     }
   };
 
+  useEffect(() => {
+    window.onclick = (event) => {
+      if (event.target.tagName !== 'IMG' && hidden === false) {
+        toggleModal();
+      }
+    };
+  });
+
   if (hidden) {
     return (
       <div
         id="hidden-modal"
         className="modal hidden-modal"
-        onClick={onClickHandler}
-        onKeyPress={onClickHandler}
+        onClick={toggleModal}
+        onKeyPress={toggleModal}
       />
     );
   }
@@ -44,13 +52,9 @@ const Modal = (props) => {
     <div
       id="modal"
       className="modal"
-      onClick={onClickHandler}
-      onKeyPress={onClickHandler}
     >
-      <div className="flex-container">
-        <ModalMainView images={images} currentImage={currentImage} />
-        <ModalThumbnailCarousel images={images} onClickHandler={setCurrentImage} />
-      </div>
+      <ModalMainView images={images} currentImage={currentImage} />
+      <ModalThumbnailCarousel images={images} onClickHandler={setCurrentImage} />
     </div>
   );
 };
