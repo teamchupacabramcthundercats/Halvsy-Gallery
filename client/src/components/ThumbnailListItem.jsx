@@ -4,11 +4,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ThumbnailListItem = (props) => {
-  const { image, id, onClickHandler } = props;
+  const {
+    image,
+    id,
+    onClickHandler,
+    classes,
+  } = props;
   const thumbId = `thumbnail-${id}`;
 
   return (
-    <li className="thumbnail-list-item round-corners">
+    <li className={`thumbnail-list-item round-corners ${classes}`}>
       <img
         id={thumbId}
         src={image.thumbnail}
@@ -23,6 +28,7 @@ ThumbnailListItem.propTypes = {
   image: PropTypes.objectOf(PropTypes.string).isRequired,
   onClickHandler: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
+  classes: PropTypes.string.isRequired,
 };
 
 export default ThumbnailListItem;

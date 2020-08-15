@@ -87,6 +87,7 @@ const Gallery = (props) => {
           setShowModal={setShowModal}
         />
         <ThumbnailCarousel
+          currentImage={state.currentMainView}
           images={images}
           onClickHandler={onThumbnailClick}
         />
