@@ -8,7 +8,7 @@ const ThumbnailListItem = (props) => {
   const thumbId = `thumbnail-${id}`;
 
   return (
-    <li>
+    <li className="thumbnail-list-item round-corners">
       <img
         id={thumbId}
         src={image.thumbnail}

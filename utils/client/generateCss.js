@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 module.exports.generateCss = () => {
   const styles = `
   .thumbnail-carousel-container {
@@ -72,13 +73,17 @@ module.exports.generateCss = () => {
   .hidden-modal {
     display: none;
   }
+  
+  .inner-modal {
+    z-index: 5;
+  }
   `;
 
-  const css = document.createElement('style');
-  css.type = 'text/css';
-  css.id = 'gallery-styles';
+  // const css = document.createElement('style');
+  // css.type = 'text/css';
+  // css.id = 'gallery-styles';
 
-  css.appendChild(document.createTextNode(styles));
+  // css.appendChild(document.createTextNode(styles));
 
-  document.getElementsByTagName('head')[0].appendChild(css);
+  // document.getElementsByTagName('head')[0].appendChild(css);
 };

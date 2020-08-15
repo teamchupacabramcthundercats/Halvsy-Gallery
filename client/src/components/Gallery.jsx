@@ -11,7 +11,12 @@ import Modal from './Modal';
 const Gallery = (props) => {
   const { productId } = props;
   const reducer = (state, newState) => ({ ...state, ...newState });
-  const [state, setState] = useReducer(reducer, { product: undefined, currentMainView: undefined });
+  const [state, setState] = useReducer(reducer, {
+    product: undefined,
+    currentMainView: undefined,
+    modalImage: undefined,
+    isFavorite: false,
+  });
   const [showModal, setShowModal] = useState(false);
 
   const onClickToShowModal = () => {
@@ -22,16 +27,36 @@ const Gallery = (props) => {
     let { id } = event.target;
     const { images } = state.product;
 
-    id = id.substr(-1);
+    id = id.split('-');
+    id = id.pop();
 
-    setState({ currentMainView: images[id] });
+    const image = images[id];
+
+    setState({ currentMainView: image, modalImage: image });
+  };
+
+  const setModalImage = (image) => {
+    setState({ modalImage: image });
+  };
+
+  const toggleFavorite = () => {
+    axios.patch(`/api/favorite/${state.product.id}`)
+      .then(({ data }) => {
+        const { isFavorite } = data;
+        setState({ isFavorite });
+      });
   };
 
   if (state.product === undefined) {
     axios.get(`/api/images/${productId}`)
       .then((response) => {
-        const { images } = response.data;
-        setState({ product: response.data, currentMainView: images[0] });
+        const { images, isFavorite } = response.data;
+        setState({
+          product: response.data,
+          currentMainView: images[0],
+          modalImage: images[0],
+          isFavorite,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -52,6 +77,8 @@ const Gallery = (props) => {
       <div className="gallery flex-container">
         <Modal
           images={images}
+          currentImage={state.modalImage}
+          setCurrentImage={setModalImage}
           showModal={showModal}
           setShowModal={setShowModal}
         />
@@ -63,6 +90,8 @@ const Gallery = (props) => {
           images={images}
           currentImage={state.currentMainView}
           onClickToShowModal={onClickToShowModal}
+          isFavorite={!!state.isFavorite}
+          toggleFavorite={toggleFavorite}
         />
       </div>
     );

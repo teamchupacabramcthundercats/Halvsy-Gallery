@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import ModalMainView from '../../../client/src/components/ModalMainView';
+import ModalThumbnailCarousel from '../../../client/src/components/ModalThumbnailCarousel';
 
 const sampleImages = [
   {
@@ -16,12 +16,15 @@ const sampleImages = [
   },
 ];
 
-describe('ModalMainView', () => {
-  it('renders without throwing an error', () => {
-    const wrapper = shallow(<ModalMainView 
-      images={sampleImages} 
-      currentImage={sampleImages[0]}
-    />);
-    expect(wrapper.is('.modal-main-view')).toBe(true);
-  })
+describe('ModalThumbnailCarousel', () => {
+  it('should render without throwing an error', () => {
+    const wrapper = shallow(
+      <ModalThumbnailCarousel 
+        images={sampleImages}
+        onClickHandler={() => {}}
+      />
+    );
+
+    expect(wrapper.is('.modal-thumbnail-carousel')).toBe(true);
+  });
 });

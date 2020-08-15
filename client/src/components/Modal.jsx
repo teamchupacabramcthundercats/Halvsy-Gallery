@@ -1,39 +1,60 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import ModalMainView from './ModalMainView';
+import ModalThumbnailCarousel from './ModalThumbnailCarousel';
 
 const Modal = (props) => {
-  const { images, showModal, setShowModal } = props;
+  const {
+    images,
+    currentImage,
+    setCurrentImage,
+    showModal,
+    setShowModal,
+  } = props;
   const [hidden, setHidden] = useState(true);
+
+  const toggleModal = () => {
+    if (hidden) {
+      setHidden(false);
+      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+    } else {
+      setShowModal(false);
+      setHidden(true);
+      document.getElementsByTagName('body')[0].style.overflow = '';
+    }
+  };
+
+  const selectImage = (event) => {
+    let { id } = event.target;
+
+    id = id.split('-');
+    id = id.pop();
+
+    setCurrentImage(images[id]);
+  };
 
   if (showModal) {
     if (hidden) {
       setHidden(false);
+      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     }
   }
 
-  const onClickHandler = () => {
-    if (hidden) {
-      setHidden(false);
-    } else {
-      setShowModal(false);
-      setHidden(true);
+  const onModalClick = (event) => {
+    if ((event.target.tagName !== 'IMG' && !event.target.classList.contains('btn-nav')) && hidden === false) {
+      toggleModal();
     }
   };
 
   if (hidden) {
     return (
       <div
-        id="modal"
+        id="hidden-modal"
         className="modal hidden-modal"
-        onClick={onClickHandler}
-        onKeyPress={onClickHandler}
-      >
-        <div className="flex-container">
-          <div>Placeholder modal main view div</div>
-          <div>Placeholder modal thumbnail carousel div</div>
-        </div>
-      </div>
+        onClick={toggleModal}
+        onKeyPress={toggleModal}
+      />
     );
   }
 
@@ -41,12 +62,17 @@ const Modal = (props) => {
     <div
       id="modal"
       className="modal"
-      onClick={onClickHandler}
-      onKeyPress={onClickHandler}
+      onClick={onModalClick}
+      onKeyPress={onModalClick}
     >
-      <div className="flex-container">
-        <div>Placeholder modal main view div</div>
-        <div>Placeholder modal thumbnail carousel div</div>
+      <button type="button" className="btn btn-close-modal">
+        <svg className="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M13.414,12l6.293-6.293a1,1,0,0,0-1.414-1.414L12,10.586,5.707,4.293A1,1,0,0,0,4.293,5.707L10.586,12,4.293,18.293a1,1,0,1,0,1.414,1.414L12,13.414l6.293,6.293a1,1,0,0,0,1.414-1.414Z" />
+        </svg>
+      </button>
+      <div className="modal-content">
+        <ModalMainView images={images} currentImage={currentImage} />
+        <ModalThumbnailCarousel images={images} onClickHandler={selectImage} />
       </div>
     </div>
   );
@@ -54,6 +80,8 @@ const Modal = (props) => {
 
 Modal.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
+  setCurrentImage: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
   setShowModal: PropTypes.func.isRequired,
 };

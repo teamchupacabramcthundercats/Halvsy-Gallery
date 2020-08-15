@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import ModalMainView from '../../../client/src/components/ModalMainView';
+import ModalMainViewImage from '../../../client/src/components/ModalMainViewImage';
 
 const sampleImages = [
   {
@@ -16,12 +16,8 @@ const sampleImages = [
   },
 ];
 
-describe('ModalMainView', () => {
-  it('renders without throwing an error', () => {
-    const wrapper = shallow(<ModalMainView 
-      images={sampleImages} 
-      currentImage={sampleImages[0]}
-    />);
-    expect(wrapper.is('.modal-main-view')).toBe(true);
-  })
+describe('ModalMainViewImage', () => {
+  it('should render without throwing an error', () => {
+    const wrapper = shallow(<ModalMainViewImage image={sampleImages[0]} counter={0} display={'inline-block'} />)
+  });
 });

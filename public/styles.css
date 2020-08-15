@@ -1,0 +1,270 @@
+/* ===== GENERAL ===== */
+
+.round-corners {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.gallery {
+  position: relative;
+  flex-flow: row;
+  width: auto;
+  height: auto;
+}
+
+/* ===== MAIN IMAGE VIEW ===== */
+
+.main-view {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  margin-left: 66px;
+  max-width: 794px;
+  height: 530px;
+}
+
+.main-view-content {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  margin: 0;
+  
+}
+
+.main-view-content img {
+  object-fit: fill;
+}
+
+/* ===== MAIN CAROUSEL ===== */
+
+.thumbnail-carousel-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 66px;
+  height: 530px;
+}
+
+.thumbnail-list {
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  box-sizing: border-box;
+  list-style: none;
+  scrollbar-width: none;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.thumbnail-list::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail-list-item {
+  box-sizing: border-box;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 0;
+  justify-content: center;
+}
+
+.thumbnail-list-item img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.thumbnail-scroll-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 60px;
+}
+
+.thumbnail-scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 60px;
+}
+
+/* ===== MODAL ===== */
+
+.modal {
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(63, 63, 63, 0.9);
+  z-index: 3;
+}
+
+.hidden-modal {
+  display: none;
+}
+
+.modal-content {
+  display: flex;
+  height: 100%;
+  width: 80%;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ===== MODAL MAIN VIEW ===== */
+
+.modal-main-view {
+  position: relative;
+  margin: 60px 12px 24px 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.modal-main-view-list {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.modal-main-view img {
+  object-fit: cover;
+  width: 100%;
+  zoom: 2;
+  border-radius: 6px;
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+/* ===== MODAL CAROUSEL ===== */
+
+
+.modal-thumbnail-carousel {
+  padding-top: 60px;
+  margin: 0;
+}
+
+.modal-thumbnail-list {
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  overflow-y: auto;
+  height: 100vh;
+  width: 257px;
+  padding: 0;
+  margin: 0;
+}
+
+.thumb-lg {
+  height: 228px;
+  width: 228px;
+  margin-bottom: 12px;
+}
+
+.thumb-sm {
+  height: 108px;
+  height: 108px;
+}
+
+.thumb-l {
+  margin-bottom: 12px;
+  margin-right: 12px;
+}
+
+.thumb-r {
+  margin-bottom: 12px;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn {
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0px solid rgb(34, 34, 34);
+  border-radius: 24px;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 12px 12px 0 0;
+  padding: 12px;
+  transition: transform 200ms cubic-bezier(0.345, 0.115, 0.135, 1.42),background 150ms ease-out,box-shadow 200ms ease-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:active, .btn:focus{
+  outline: 0;
+}
+
+.btn-vert-center {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.btn-vert-center:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.btn-left {
+  left: 0;
+  margin-left: 12px;
+}
+
+.btn-right {
+  right: 0;
+  margin-right: 12px;
+}
+
+.btn-close-modal {
+  top: 0;
+  right: 0;
+}
+
+.btn-fav {
+  top:0;
+  right: 0;
+  margin-top: 12px;
+  margin-right: 12px;
+}
+
+.btn-hidden-fav {
+  display: none;
+}
+
+.btn-fav-true {
+  display: inline-block;
+  color: #A61A2E;
+  fill: #A61A2E;
+}
+
