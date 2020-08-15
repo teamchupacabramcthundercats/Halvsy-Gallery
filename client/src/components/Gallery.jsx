@@ -15,6 +15,7 @@ const Gallery = (props) => {
     product: undefined,
     currentMainView: undefined,
     modalImage: undefined,
+    isFavorite: false,
   });
   const [showModal, setShowModal] = useState(false);
 
@@ -41,18 +42,20 @@ const Gallery = (props) => {
   const toggleFavorite = () => {
     axios.patch(`/api/favorite/${state.product.id}`)
       .then(({ data }) => {
-        setState({ product: data });
+        const { isFavorite } = data;
+        setState({ isFavorite });
       });
   };
 
   if (state.product === undefined) {
     axios.get(`/api/images/${productId}`)
       .then((response) => {
-        const { images } = response.data;
+        const { images, isFavorite } = response.data;
         setState({
           product: response.data,
           currentMainView: images[0],
           modalImage: images[0],
+          isFavorite,
         });
       })
       .catch((err) => {
@@ -87,7 +90,7 @@ const Gallery = (props) => {
           images={images}
           currentImage={state.currentMainView}
           onClickToShowModal={onClickToShowModal}
-          isFavorite={!!state.product.isFavorite}
+          isFavorite={!!state.isFavorite}
           toggleFavorite={toggleFavorite}
         />
       </div>

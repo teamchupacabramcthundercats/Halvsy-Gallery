@@ -258,6 +258,13 @@
   margin-right: 12px;
 }
 
-.btn-fav-true {
-  color: red;
+.btn-hidden-fav {
+  display: none;
 }
+
+.btn-fav-true {
+  display: inline-block;
+  color: #A61A2E;
+  fill: #A61A2E;
+}
+

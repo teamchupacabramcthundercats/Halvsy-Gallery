@@ -36,9 +36,8 @@ app.patch('/api/favorite/:productId', (req, res) => {
   const { productId } = req.params;
 
   models.toggleFavorite(productId)
-    .then(() => models.getImageById(productId))
-    .then((productData) => {
-      res.send(productData);
+    .then((isFavorite) => {
+      res.send(isFavorite);
     })
     .catch((err) => {
       console.log(err);
