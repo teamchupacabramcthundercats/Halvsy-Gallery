@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThumbnailList from './ThumbnailList';
@@ -18,6 +19,15 @@ const ThumbnailCarousel = (props) => {
     }
   };
 
+  const onScrollDivClick = (event) => {
+    const { target } = event;
+    const originalStyle = target.style.display;
+
+    target.style.display = 'none';
+    document.elementFromPoint(event.clientX, event.clientY).click();
+    target.style.display = originalStyle;
+  };
+
   return (
     <div
       className="thumbnail-carousel-container flex-container"
@@ -26,6 +36,8 @@ const ThumbnailCarousel = (props) => {
         className="thumbnail-scroll-up"
         onMouseOver={() => onMouseOverHandler('up')}
         onFocus={() => onMouseOverHandler('up')}
+        onClick={onScrollDivClick}
+        onKeyPress={onScrollDivClick}
       />
       <ThumbnailList
         images={images}
@@ -36,6 +48,8 @@ const ThumbnailCarousel = (props) => {
         className="thumbnail-scroll-down"
         onMouseOver={() => onMouseOverHandler('down')}
         onFocus={() => onMouseOverHandler('down')}
+        onClick={onScrollDivClick}
+        onKeyPress={onScrollDivClick}
       />
     </div>
   );
@@ -44,6 +58,7 @@ const ThumbnailCarousel = (props) => {
 ThumbnailCarousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClickHandler: PropTypes.func.isRequired,
+  currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default ThumbnailCarousel;

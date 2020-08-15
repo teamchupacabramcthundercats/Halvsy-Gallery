@@ -28,6 +28,7 @@ describe('ThumbnailCarousel', () => {
       <ThumbnailCarousel
         images={sampleImages}
         onClickHandler={onThumbnailClick}
+        currentImage={sampleImages[0]}
       />
     );
     expect(thumbnailCarousel.is('.thumbnail-carousel-container')).toBe(true);
@@ -38,6 +39,7 @@ describe('ThumbnailCarousel', () => {
       <ThumbnailCarousel
         images={sampleImages}
         onClickHandler={onThumbnailClick}
+        currentImage={sampleImages[0]}
       />
     );
     
@@ -49,6 +51,7 @@ describe('ThumbnailCarousel', () => {
       <ThumbnailCarousel
         images={sampleImages}
         onClickHandler={onThumbnailClick}
+        currentImage={sampleImages[0]}
       />
     );
     
@@ -61,6 +64,7 @@ describe('ThumbnailCarousel', () => {
       <ThumbnailCarousel
         images={sampleImages}
         onClickHandler={onThumbnailClick}
+        currentImage={sampleImages[0]}
       />
     );
     
@@ -84,6 +88,7 @@ describe('ThumbnailCarousel', () => {
       <ThumbnailCarousel
         images={sampleImages}
         onClickHandler={onThumbnailClick}
+        currentImage={sampleImages[0]}
       />
     );
     

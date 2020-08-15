@@ -37,6 +37,7 @@ const ThumbnailList = (props) => {
 ThumbnailList.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClickHandler: PropTypes.func.isRequired,
+  currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default ThumbnailList;
