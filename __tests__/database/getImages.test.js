@@ -1,32 +1,57 @@
 /* eslint-disable */
 const { db } = require('../../database/index.js');
-const models = require('../../database/models');
+const { getImageById } = require('../../database/models');
 
-beforeAll(() => {
-  db.connect();
-});
+const queryAsyncMock = jest.spyOn(db, 'queryAsync');
+
+const sampleImages = [
+  {
+    full: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/044.jpg',
+    small: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/small/044-sm.jpg',
+    thumbnail: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/thumbnail/044-tn.jpg',
+  },
+  {
+    full: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/044.jpg',
+    small: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/small/044-sm.jpg',
+    thumbnail: 'https:/fec-gallery.s3-us-west-2.amazonaws.com/thumbnail/044-tn.jpg',
+  },
+];
 
 afterAll(() => {
-  db.end();
+  jest.restoreAllMocks();
+})
+
+describe('getImagesById', () => {
+  it('getImageById returns an object', () => {
+    queryAsyncMock.mockImplementationOnce(() => {
+      return Promise.resolve([{ id: 0, name: 'name', isFavorite: 0}]);
+    });
+    queryAsyncMock.mockImplementationOnce(() => {
+      return Promise.resolve(sampleImages);
+    });
+
+    return expect(getImageById(1)).resolves.toContainAllKeys(['id', 'name', 'isFavorite', 'images']);
+  });
+  
+  it('product.images should not be empty', () => {
+    queryAsyncMock.mockImplementationOnce(() => {
+      return Promise.resolve([{ id: 0, name: 'name', isFavorite: 0}]);
+    });
+    queryAsyncMock.mockImplementationOnce(() => {
+      return Promise.resolve(sampleImages);
+    });
+
+    return expect(getImageById(1)).resolves.toHaveProperty('images', sampleImages);
+    
+  });
+
+  it('should handle errors', () => {
+    queryAsyncMock.mockImplementationOnce(() => {
+      return Promise.reject(new Error('failed'));
+    });
+  
+    expect(getImageById(1)).rejects.toThrow('failed');
+  });
+
 });
 
-test('getImagesById returns an object', () => {
-  return models.getImageById(1)
-    .then((data) => {
-      expect(data).toContainAllKeys(['id', 'name', 'isFavorite', 'images']);
-    });
-});
-
-test('product.images should not be empty', () => {
-  return models.getImageById(1)
-    .then((data) => {
-      expect(data.images).not.toHaveLength(0);
-    });
-});
-
-test('image entries should have full, small, and thumbnail keys', () => {
-  return models.getImageById(1)
-    .then((data) => {
-      expect(data.images[0]).toContainAllKeys(['full', 'small', 'thumbnail']);
-    });
-});

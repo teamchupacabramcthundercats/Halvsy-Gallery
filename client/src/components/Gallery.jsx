@@ -39,6 +39,10 @@ const Gallery = (props) => {
     setState({ modalImage: image });
   };
 
+  const setCurrentImage = (image) => {
+    setState({ currentMainView: image });
+  };
+
   const toggleFavorite = () => {
     axios.patch(`/api/favorite/${state.product.id}`)
       .then(({ data }) => {
@@ -89,6 +93,7 @@ const Gallery = (props) => {
         <MainView
           images={images}
           currentImage={state.currentMainView}
+          setCurrentImage={setCurrentImage}
           onClickToShowModal={onClickToShowModal}
           isFavorite={!!state.isFavorite}
           toggleFavorite={toggleFavorite}

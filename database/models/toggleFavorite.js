@@ -24,5 +24,8 @@ module.exports.toggleFavorite = (productId) => new Promise((resolve, reject) => 
             reject(err);
           });
       }
+    })
+    .catch((err) => {
+      reject(err);
     });
 });
