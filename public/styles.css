@@ -80,12 +80,11 @@
   justify-content: center;
 }
 
-
-
 .thumbnail-list-item img {
   object-fit: cover;
   height: 100%;
   opacity: .6;
+  transition: opacity 0.1s;
 }
 
 .thumbnail-list-item img:hover {
@@ -197,6 +196,10 @@
   margin: 0;
 }
 
+.modal-thumb-item {
+  box-sizing: border-box;
+}
+
 .thumb-lg {
   height: 228px;
   width: 228px;
@@ -215,6 +218,10 @@
 
 .thumb-r {
   margin-bottom: 12px;
+}
+
+.thumb-current {
+  border: 2px solid white;
 }
 
 /* ===== BUTTONS ===== */
