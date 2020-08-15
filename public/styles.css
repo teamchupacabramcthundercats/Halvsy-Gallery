@@ -34,11 +34,22 @@
   position: relative;
   display: flex;
   margin: 0;
-  
 }
 
-.main-view-content img {
+.main-image {
+
   object-fit: fill;
+  width: auto;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.6s ease-in;
+}
+
+.main-image-visible {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
 }
 
 /* ===== MAIN CAROUSEL ===== */
