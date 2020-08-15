@@ -71,7 +71,11 @@ const Modal = (props) => {
         </svg>
       </button>
       <div className="modal-content">
-        <ModalMainView images={images} currentImage={currentImage} />
+        <ModalMainView
+          images={images}
+          currentImage={currentImage}
+          setCurrentImage={setCurrentImage}
+        />
         <ModalThumbnailCarousel images={images} onClickHandler={selectImage} />
       </div>
     </div>
