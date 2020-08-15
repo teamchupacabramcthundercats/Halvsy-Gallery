@@ -38,11 +38,22 @@ const Gallery = (props) => {
     setState({ modalImage: image });
   };
 
+  const toggleFavorite = () => {
+    axios.patch(`/api/favorite/${state.product.id}`)
+      .then(({ data }) => {
+        setState({ product: data });
+      });
+  };
+
   if (state.product === undefined) {
     axios.get(`/api/images/${productId}`)
       .then((response) => {
         const { images } = response.data;
-        setState({ product: response.data, currentMainView: images[0], modalImage: images[0] });
+        setState({
+          product: response.data,
+          currentMainView: images[0],
+          modalImage: images[0],
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -76,6 +87,8 @@ const Gallery = (props) => {
           images={images}
           currentImage={state.currentMainView}
           onClickToShowModal={onClickToShowModal}
+          isFavorite={!!state.product.isFavorite}
+          toggleFavorite={toggleFavorite}
         />
       </div>
     );

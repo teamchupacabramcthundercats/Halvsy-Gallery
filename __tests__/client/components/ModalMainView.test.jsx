@@ -18,7 +18,10 @@ const sampleImages = [
 
 describe('ModalMainView', () => {
   it('renders without throwing an error', () => {
-    const wrapper = shallow(<ModalMainView images={sampleImages} currentImage={sampleImages[0]} />);
+    const wrapper = shallow(<ModalMainView 
+      images={sampleImages} 
+      currentImage={sampleImages[0]}
+    />);
     expect(wrapper.is('.modal-main-view')).toBe(true);
   })
 });

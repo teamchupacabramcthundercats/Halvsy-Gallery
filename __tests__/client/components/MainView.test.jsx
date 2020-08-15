@@ -14,6 +14,12 @@ const sampleImages = [
 ];
 
 test('MainView should render without throwing an error.', () => {
-  const mainView = shallow(<MainView images={sampleImages} currentImage={sampleImages[0]} onClickToShowModal={() => undefined }/>);
+  const mainView = shallow(<MainView 
+    images={sampleImages} 
+    currentImage={sampleImages[0]} 
+    onClickToShowModal={() => undefined }
+    isFavorite={false}
+    toggleFavorite={() => {}}
+  />);
   expect(mainView.is('.main-view')).toBe(true);
 });

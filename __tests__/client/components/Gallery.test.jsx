@@ -75,7 +75,7 @@ describe('Gallery', () => {
     useReducerMock.mockImplementation(init => [{ 
       product: sampleResponse.data, 
       currentMainView: sampleImages[0], 
-      modalImage: sampleImages[0] 
+      modalImage: sampleImages[0],
     }, setReducerMock]);
     axios.get.mockResolvedValueOnce(sampleResponse);
     const gallery = mount(<Gallery productId="1" />);

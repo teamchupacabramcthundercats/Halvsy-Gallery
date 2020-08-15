@@ -32,6 +32,20 @@ app.get('/api/images/:productId', (req, res) => {
     });
 });
 
+app.patch('/api/favorite/:productId', (req, res) => {
+  const { productId } = req.params;
+
+  models.toggleFavorite(productId)
+    .then(() => models.getImageById(productId))
+    .then((productData) => {
+      res.send(productData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(404);
+    });
+});
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
