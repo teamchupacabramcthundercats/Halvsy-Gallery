@@ -8,41 +8,41 @@ const Modal = (props) => {
   const {
     images,
     currentImage,
+    setCurrentImage,
     showModal,
     setShowModal,
   } = props;
   const [hidden, setHidden] = useState(true);
-  const [modalImage, setModalImage] = useState(currentImage);
 
   const toggleModal = () => {
     if (hidden) {
-      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
       setHidden(false);
+      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     } else {
-      document.getElementsByTagName('body')[0].style.overflow = '';
       setShowModal(false);
       setHidden(true);
+      document.getElementsByTagName('body')[0].style.overflow = '';
     }
   };
 
-  const changeImage = (event) => {
+  const selectImage = (event) => {
     let { id } = event.target;
 
     id = id.split('-');
     id = id.pop();
 
-    setModalImage(images[id]);
+    setCurrentImage(images[id]);
   };
 
   if (showModal) {
     if (hidden) {
-      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
       setHidden(false);
+      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     }
   }
 
-  window.onclick = (event) => {
-    if (event.target.tagName !== 'IMG' && hidden === false) {
+  const onModalClick = (event) => {
+    if ((event.target.tagName !== 'IMG' && !event.target.classList.contains('btn-nav')) && hidden === false) {
       toggleModal();
     }
   };
@@ -62,6 +62,8 @@ const Modal = (props) => {
     <div
       id="modal"
       className="modal"
+      onClick={onModalClick}
+      onKeyPress={onModalClick}
     >
       <button type="button" className="btn btn-close-modal">
         <svg className="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -69,8 +71,8 @@ const Modal = (props) => {
         </svg>
       </button>
       <div className="modal-content">
-        <ModalMainView images={images} currentImage={modalImage} />
-        <ModalThumbnailCarousel images={images} onClickHandler={changeImage} />
+        <ModalMainView images={images} currentImage={currentImage} />
+        <ModalThumbnailCarousel images={images} onClickHandler={selectImage} />
       </div>
     </div>
   );
@@ -79,6 +81,7 @@ const Modal = (props) => {
 Modal.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentImage: PropTypes.objectOf(PropTypes.string).isRequired,
+  setCurrentImage: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
   setShowModal: PropTypes.func.isRequired,
 };

@@ -9,26 +9,38 @@ const ModalMainView = (props) => {
 
   return (
     <div className="modal-main-view inner-modal">
-      {images.map((image) => {
-        if (image === currentImage) {
+      <button type="button" className="btn btn-nav btn-vert-center btn-left-modal">
+        <svg className="close-icon btn-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path className="btn-nav" d="M16,21a0.994,0.994,0,0,1-.664-0.253L5.5,12l9.841-8.747a1,1,0,0,1,1.328,1.494L8.5,12l8.159,7.253A1,1,0,0,1,16,21Z" />
+        </svg>
+      </button>
+      <ul className="modal-main-view-list">
+        {images.map((image) => {
+          if (image === currentImage) {
+            return (
+              <ModalMainViewImage
+                key={counter++}
+                counter={counter}
+                image={image}
+                display="inline-block"
+              />
+            );
+          }
           return (
             <ModalMainViewImage
               key={counter++}
               counter={counter}
               image={image}
-              display="inline-block"
+              display="none"
             />
           );
-        }
-        return (
-          <ModalMainViewImage
-            key={counter++}
-            counter={counter}
-            image={image}
-            display="none"
-          />
-        );
-      })}
+        })}
+      </ul>
+      <button type="button" className="btn btn-nav btn-vert-center btn-right-modal">
+        <svg className="close-icon btn-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path className="btn-nav" d="M8,21a1,1,0,0,1-.664-1.747L15.5,12,7.336,4.747A1,1,0,0,1,8.664,3.253L18.5,12,8.664,20.747A0.994,0.994,0,0,1,8,21Z" />
+        </svg>
+      </button>
     </div>
   );
 };

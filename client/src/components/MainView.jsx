@@ -9,7 +9,7 @@ const MainView = (props) => {
   let counter = 0;
 
   return (
-    <div className="main-view">
+    <div className="main-view round-corners">
       {images.map((image) => {
         if (image === currentImage) {
           return (

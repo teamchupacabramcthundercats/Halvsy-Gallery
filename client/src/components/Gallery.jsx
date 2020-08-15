@@ -11,7 +11,11 @@ import Modal from './Modal';
 const Gallery = (props) => {
   const { productId } = props;
   const reducer = (state, newState) => ({ ...state, ...newState });
-  const [state, setState] = useReducer(reducer, { product: undefined, currentMainView: undefined });
+  const [state, setState] = useReducer(reducer, {
+    product: undefined,
+    currentMainView: undefined,
+    modalImage: undefined,
+  });
   const [showModal, setShowModal] = useState(false);
 
   const onClickToShowModal = () => {
@@ -25,14 +29,20 @@ const Gallery = (props) => {
     id = id.split('-');
     id = id.pop();
 
-    setState({ currentMainView: images[id] });
+    const image = images[id];
+
+    setState({ currentMainView: image, modalImage: image });
+  };
+
+  const setModalImage = (image) => {
+    setState({ modalImage: image });
   };
 
   if (state.product === undefined) {
     axios.get(`/api/images/${productId}`)
       .then((response) => {
         const { images } = response.data;
-        setState({ product: response.data, currentMainView: images[0] });
+        setState({ product: response.data, currentMainView: images[0], modalImage: images[0] });
       })
       .catch((err) => {
         console.log(err);
@@ -53,8 +63,8 @@ const Gallery = (props) => {
       <div className="gallery flex-container">
         <Modal
           images={images}
-          currentImage={state.currentMainView}
-          setCurrentImage={onThumbnailClick}
+          currentImage={state.modalImage}
+          setCurrentImage={setModalImage}
           showModal={showModal}
           setShowModal={setShowModal}
         />

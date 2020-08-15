@@ -10,18 +10,20 @@ const ModalMainViewImage = (props) => {
   } = props;
 
   return (
-    <img
-      id={`main${counter}`}
-      className="modal-main-image"
-      style={{
-        display,
-        borderRadios: '6px',
-      }}
-      alt="product"
-      src={image.full}
-      onClick={undefined}
-      onKeyPress={undefined}
-    />
+    <li>
+      <img
+        id={`main${counter}`}
+        className="modal-main-image"
+        style={{
+          display,
+          borderRadios: '6px',
+        }}
+        alt="product"
+        src={image.full}
+        onClick={undefined}
+        onKeyPress={undefined}
+      />
+    </li>
   );
 };
 
