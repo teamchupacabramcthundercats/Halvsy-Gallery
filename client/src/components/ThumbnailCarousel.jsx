@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ThumbnailList from './ThumbnailList';
 
 const ThumbnailCarousel = (props) => {
-  const { images, onClickHandler } = props;
+  const { images, onClickHandler, currentImage } = props;
   const firstImageId = 'thumbnail-0';
   const lastImageId = `thumbnail-${images.length - 1}`;
 
@@ -29,6 +29,7 @@ const ThumbnailCarousel = (props) => {
       />
       <ThumbnailList
         images={images}
+        currentImage={currentImage}
         onClickHandler={onClickHandler}
       />
       <div

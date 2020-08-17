@@ -46,7 +46,7 @@ const MainView = (props) => {
                 key={counter++}
                 counter={counter}
                 image={image}
-                display="inline-block"
+                display="main-image-visible"
                 onClickHandler={onClickToShowModal}
               />
             );
@@ -56,7 +56,7 @@ const MainView = (props) => {
                 key={counter++}
                 counter={counter}
                 image={image}
-                display="none"
+                display=""
               />
             );
           }

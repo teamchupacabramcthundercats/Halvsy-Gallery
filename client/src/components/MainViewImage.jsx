@@ -13,12 +13,7 @@ const MainViewImage = (props) => {
   return (
     <img
       id={`main${counter}`}
-      className="main-image"
-      style={{
-        display,
-        width: 'auto',
-        height: 'auto',
-      }}
+      className={`main-image ${display}`}
       alt="product"
       src={image.full}
       onClick={onClickHandler}

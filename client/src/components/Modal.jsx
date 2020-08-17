@@ -76,7 +76,11 @@ const Modal = (props) => {
           currentImage={currentImage}
           setCurrentImage={setCurrentImage}
         />
-        <ModalThumbnailCarousel images={images} onClickHandler={selectImage} />
+        <ModalThumbnailCarousel
+          images={images}
+          onClickHandler={selectImage}
+          currentImage={currentImage}
+        />
       </div>
     </div>
   );

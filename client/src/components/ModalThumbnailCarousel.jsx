@@ -4,27 +4,29 @@ import PropTypes from 'prop-types';
 import ModalThumbnailCarouselItem from './ModalThumbnailCarouselItem';
 
 const ModalThumbnailCarousel = (props) => {
-  const { images, onClickHandler } = props;
+  const { images, onClickHandler, currentImage } = props;
 
   return (
     <div className="modal-thumbnail-carousel flex-container">
       <ul className="modal-thumbnail-list flex-container">
         {images.map((image, key) => {
-          let size;
+          let classes;
           if ((key % 3) === 0) {
-            size = 'thumb-lg';
+            classes = 'thumb-lg';
           } else if ((key % 3) === 1) {
-            size = 'thumb-sm thumb-l';
+            classes = 'thumb-sm thumb-l';
+          } else {
+            classes = 'thumb-sm thumb-r';
           }
-          else {
-            size = 'thumb-sm thumb-r';
+          if (image === currentImage) {
+            classes += ' thumb-current';
           }
 
           return (
             <ModalThumbnailCarouselItem
               key={`tn-${key}`}
               id={key}
-              sizeClass={size}
+              sizeClass={classes}
               image={image}
               onClickHandler={onClickHandler}
             />

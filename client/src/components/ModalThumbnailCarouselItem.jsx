@@ -14,7 +14,7 @@ const ModalThumbnailCarouselItem = (props) => {
     <li>
       <img
         id={`thumbnail-${id}`}
-        className={`round-corners ${sizeClass}`}
+        className={`round-corners modal-thumb-item ${sizeClass}`}
         src={image.small}
         alt="Product Thumbnail"
         onClick={onClickHandler}
