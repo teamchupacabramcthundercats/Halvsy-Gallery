@@ -64,9 +64,9 @@
 }
 
 .thumbnail-list {
-  flex-flow: row;
+  flex-flow: column;
   flex-wrap: wrap;
-  align-items: flex-start;
+  justify-content: flex-start;
   box-sizing: border-box;
   list-style: none;
   scrollbar-width: none;

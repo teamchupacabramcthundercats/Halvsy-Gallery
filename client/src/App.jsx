@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import Gallery from './components/Gallery';
 import './styles.css';
 
-const App = () => (
-  <div>
-    <Gallery productId="2" />
-  </div>
-);
+const App = () => {
+  const productId = (window.location.pathname).substr(-3);
+
+  return (
+    <div>
+      <Gallery productId={productId} />
+    </div>
+  );
+};
 
 ReactDOM.render(<App />, document.getElementById('gallery'));
 
