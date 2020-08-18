@@ -4,7 +4,7 @@ import Gallery from './components/Gallery';
 import './styles.css';
 
 const App = () => {
-  const productId = (window.location.pathname).substr(-3);
+  const productId = (window.location.pathname).substr(-4);
 
   return (
     <div>
