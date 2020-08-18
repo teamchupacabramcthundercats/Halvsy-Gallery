@@ -65,12 +65,12 @@
 
 .thumbnail-list {
   flex-flow: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  height: 530px;
+  align-items: flex-end;
   box-sizing: border-box;
   list-style: none;
   scrollbar-width: none;
-  overflow: scroll;
+  overflow-y: scroll;
   -ms-overflow-style: none;
   padding: 0px;
   margin: 0px;
@@ -82,18 +82,22 @@
 
 .thumbnail-list-item {
   box-sizing: border-box;
-  display: flex;
+  flex-shrink: 0;
+  display: list-item;
+  overflow: hidden;
   width: 60px;
   height: 60px;
   margin-right: 6px;
   margin-bottom: 6px;
   padding: 0;
-  justify-content: center;
 }
 
-.thumbnail-list-item img {
-  object-fit: cover;
-  height: 100%;
+.thumbnail-list-image {
+  display: inline;
+  box-sizing: border-box;
+  max-height: 100%;
+  object-fit: fill;
+  margin: 0;
   opacity: .6;
   transition: opacity 0.1s;
 }
