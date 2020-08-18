@@ -15,7 +15,7 @@ const ThumbnailCarousel = (props) => {
     if (direction === 'up') {
       firstImage.scrollIntoView({ behavior: 'smooth' });
     } else {
-      lastImage.scrollIntoView({ behavior: 'smooth' });
+      lastImage.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
     }
   };
 
