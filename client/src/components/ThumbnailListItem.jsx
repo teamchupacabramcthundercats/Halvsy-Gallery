@@ -16,6 +16,7 @@ const ThumbnailListItem = (props) => {
     <li className={`thumbnail-list-item round-corners ${classes}`}>
       <img
         id={thumbId}
+        className="thumbnail-list-img"
         src={image.thumbnail}
         alt="thumbnail"
         onClick={onClickHandler}
