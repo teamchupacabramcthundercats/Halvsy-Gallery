@@ -38,3 +38,23 @@ From within the root directory:
 ```sh
 npm install
 ```
+
+Ensure mysql server is running:
+
+```sh
+mysql.server status
+```
+
+If mysql is not currently running, start the database with:
+
+```sh
+mysql.server start
+```
+
+Once mysql is running, run the following commands:
+
+```sh
+npm run reset-db
+npm run seed-db
+npm run server
+```
