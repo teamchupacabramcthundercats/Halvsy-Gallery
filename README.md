@@ -22,6 +22,12 @@ This project is a recreation of the gallery component from Etsy's item sales pag
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node v12.18.3
+- Axios v0.19.2
+- Express v4.17.1
+- mySQL: v2.18.1
+- prop-types: v15.7.2
+- react: v16.13.1
+- react-dom: 16.13.1
 
 ## Development
 

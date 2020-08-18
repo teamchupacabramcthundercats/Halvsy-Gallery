@@ -9,6 +9,6 @@ const App = () => (
   </div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('gallery'));
 
 export default App;
