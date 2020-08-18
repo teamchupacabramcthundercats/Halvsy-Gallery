@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from './components/Gallery';
-import { generateCss } from '../../utils/client/generateCss';
-
-generateCss();
+import './styles.css';
 
 const App = () => (
   <div>

@@ -22,6 +22,7 @@ describe('ModalThumbnailCarousel', () => {
       <ModalThumbnailCarousel 
         images={sampleImages}
         onClickHandler={() => {}}
+        currentImage={sampleImages[0]}
       />
     );
 
