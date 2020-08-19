@@ -4,6 +4,7 @@
   "description": "Gallery service for Etsy clone as part of the GHRSEA Front End Capstone project.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./server/index.js",
     "test": "jest --coverage",
     "test-leak": "jest --coverage --runInBand --detectOpenHandles",
     "build": "webpack",
