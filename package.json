@@ -10,7 +10,7 @@
     "build": "webpack",
     "build-dev": "webpack -d --watch",
     "server": "nodemon --watch server --watch database ./server/index.js",
-    "reset-db": "mysql -h 127.0.0.1 -ustudent -pstudent < database/schema.sql",
+    "reset-db": "mysql -h gallery-db -ustudent -pstudent < database/schema.sql",
     "seed-db": "node utils/database/seedDb.js"
   },
   "repository": {

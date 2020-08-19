@@ -17,6 +17,9 @@ This project is a recreation of the gallery component from Etsy's item sales pag
 
 To render the components on your page, insert a div with the id "gallery" into your html where you'd like the component to render.
 
+The server is set up to serve requests from: 
+>localhost:7777/product/{some number ending in a value between 1-100}
+
 If serving with a proxy, you'll need to proxy the routes for the API:
 
 ## GET: ‘/api/images/:productId’ 
