@@ -10,6 +10,7 @@ const port = 7777;
 db.connect((err) => {
   if (err) {
     console.log('Unable to connect to database');
+    console.log(err);
   } else {
     console.log('Successfully connected to `gallery` database');
   }
