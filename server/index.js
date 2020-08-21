@@ -1,6 +1,6 @@
 const express = require('express');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const morgan = require('morgan');
+const compression = require('compression');
 const { db } = require('../database/index.js');
 const models = require('../database/models');
 
@@ -16,6 +16,7 @@ db.connect((err) => {
   }
 });
 
+app.use(compression());
 app.use(morgan('dev'));
 app.use('/product/:productId', express.static('./public'));
 
