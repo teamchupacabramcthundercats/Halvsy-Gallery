@@ -4,11 +4,11 @@ services:
   gallery:
     build: .
     depends_on:
-      - 'database'
+      - 'gallery-db'
     ports:
       - '7777:7777'
-    command: ["./utils/wait-for-it.sh", "database:3306", "--timeout=30", "--", "npm", "start"]
-  database:
+    command: ["./utils/wait-for-it.sh", "gallery-db:3306", "--timeout=30", "--", "npm", "start"]
+  gallery-db:
     build: database/
     command: --default-authentication-plugin=mysql_native_password
     environment: 

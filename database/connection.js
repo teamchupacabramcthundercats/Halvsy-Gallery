@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 module.exports.db = mysql.createConnection({
-  host: 'database',
+  host: 'gallery-db',
   user: 'student',
   password: 'student',
   database: 'gallery',
