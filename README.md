@@ -17,6 +17,9 @@ This project is a recreation of the gallery component from Etsy's item sales pag
 
 To render the components on your page, insert a div with the id "gallery" into your html where you'd like the component to render.
 
+The server is set up to serve requests from: 
+>localhost:7777/product/{some number ending in a value between 1-100}
+
 If serving with a proxy, you'll need to proxy the routes for the API:
 
 ## GET: ‘/api/images/:productId’ 
@@ -48,6 +51,7 @@ Used to favorite or unfavorite the product matching the productId parameter.  PA
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node v12.18.3
+- Docker v19.03.12
 - Axios v0.19.2
 - Express v4.17.1
 - mySQL: v2.18.1
@@ -62,25 +66,5 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install
-```
-
-Ensure mysql server is running:
-
-```sh
-mysql.server status
-```
-
-If mysql is not currently running, start the database with:
-
-```sh
-mysql.server start
-```
-
-Once mysql is running, run the following commands:
-
-```sh
-npm run reset-db
-npm run seed-db
-npm run server
+docker-compose up -d
 ```

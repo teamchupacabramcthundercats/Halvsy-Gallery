@@ -47,6 +47,7 @@ const ModalMainView = (props) => {
       </ul>
       <button
         id="modal-left-arrow"
+        aria-label="Previous Image"
         type="button"
         className="g-btn g-btn-nav g-btn-vert-center g-btn-left"
         onClick={onClickHandler}
@@ -57,6 +58,7 @@ const ModalMainView = (props) => {
       </button>
       <button
         id="modal-right-arrow"
+        aria-label="Next Image"
         type="button"
         className="g-btn g-btn-nav g-btn-vert-center g-btn-right"
         onClick={onClickHandler}

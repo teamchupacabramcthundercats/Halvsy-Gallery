@@ -7,10 +7,10 @@
     "start": "node ./server/index.js",
     "test": "jest --coverage",
     "test-leak": "jest --coverage --runInBand --detectOpenHandles",
-    "build": "webpack",
-    "build-dev": "webpack -d --watch",
+    "build": "webpack --config webpack.prod.js",
+    "build-dev": "webpack -d --watch --config webpack.dev.js",
     "server": "nodemon --watch server --watch database ./server/index.js",
-    "reset-db": "mysql -h 127.0.0.1 -ustudent -pstudent < database/schema.sql",
+    "reset-db": "mysql -h gallery-db -ustudent -pstudent < database/schema.sql",
     "seed-db": "node utils/database/seedDb.js"
   },
   "repository": {
@@ -32,7 +32,9 @@
   "homepage": "https://github.com/teamchupacabramcthundercats/etsy-gallery#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -59,13 +61,13 @@
     "jest": "^26.2.2",
     "jest-extended": "^0.11.5",
     "lint-staged": "^10.2.11",
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "npm": "^6.14.7",
     "sharp": "^0.25.4",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.2"
   },
   "jest": {
     "verbose": true,

@@ -64,6 +64,7 @@ const MainView = (props) => {
       </div>
       <button
         id="main-left-arrow"
+        aria-label="Previous Image"
         type="button"
         className="g-btn g-btn-nav g-btn-vert-center g-btn-left"
         onClick={onClickHandler}
@@ -74,6 +75,7 @@ const MainView = (props) => {
       </button>
       <button
         id="main-right-arrow"
+        aria-label="Next Image"
         type="button"
         className="g-btn g-btn-nav g-btn-vert-center g-btn-right"
         onClick={onClickHandler}
@@ -82,7 +84,7 @@ const MainView = (props) => {
           <path style={{ pointerEvents: 'none' }} className="g-btn-nav" d="M8,21a1,1,0,0,1-.664-1.747L15.5,12,7.336,4.747A1,1,0,0,1,8.664,3.253L18.5,12,8.664,20.747A0.994,0.994,0,0,1,8,21Z" />
         </svg>
       </button>
-      <button type="button" className="g-btn g-btn-nav g-btn-fav" onClick={toggleFavorite}>
+      <button type="button" aria-label="Add Favorite" className="g-btn g-btn-nav g-btn-fav" onClick={toggleFavorite}>
         <svg className={`g-btn-hidden-fav ${favClass}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M16.5,3A6.953,6.953,0,0,0,12,5.051,6.912,6.912,0,0,0,7.5,3C4.364,3,2,5.579,2,9c0,5.688,8.349,12,10,12S22,14.688,22,9C22,5.579,19.636,3,16.5,3Z" />
         </svg>
