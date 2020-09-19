@@ -15,10 +15,12 @@ This project is a recreation of the gallery component from Etsy's item sales pag
 
 ## Usage
 
-To render the components on your page, insert a div with the id "gallery" into your html where you'd like the component to render.
+To render the reviews component on your page, insert a div with the id "gallery" into your html where you'd like the component to render.
 
 The server is set up to serve requests from: 
 >localhost:7777/product/{some number ending in a value between 1-100}
+
+Example: `localhost:7777/product/43`
 
 If serving with a proxy, you'll need to proxy the routes for the API:
 
@@ -47,24 +49,16 @@ Used to favorite or unfavorite the product matching the productId parameter.  PA
 
 
 ## Requirements
+Currently deployment via Docker is the only supported deployment method.
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+We require: Docker v19.03.12
 
-- Node v12.18.3
-- Docker v19.03.12
-- Axios v0.19.2
-- Express v4.17.1
-- mySQL: v2.18.1
-- prop-types: v15.7.2
-- react: v16.13.1
-- react-dom: 16.13.1
-
-## Development
-
-### Installing Dependencies
-
+## Installation
 From within the root directory:
 
 ```sh
 docker-compose up -d
 ```
+
+Once docker-compose is finished running, navigate to:
+>localhost:7777/product/{some number ending in a value between 1-100}
