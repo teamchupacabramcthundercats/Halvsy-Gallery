@@ -1,11 +1,11 @@
-# Etsy Gallery
+# Halvsy Gallery
 
 This project is a recreation of the gallery component from Etsy's item sales page.  It is being made in conjunction with my team mates on the Team Chupacabra McThundercat organization in an effort to develop our skills by recreating components from the Etsy page.  The sole purpose is to develop and showcase our skills, this component will not be used outside of that scope.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
   - https://github.com/teamchupacabramcthundercats/etsy-reviews
+  - https://github.com/teamchupacabramcthundercats/Halvsy-Gallery
 
 ## Table of Contents
 
