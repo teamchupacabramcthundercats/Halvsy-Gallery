@@ -10,8 +10,8 @@ This project is a recreation of the gallery component from Etsy's item sales pag
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+1. [Requirements](#Requirements)
+1. [Installation](#Installation)
 
 ## Usage
 
@@ -61,4 +61,4 @@ docker-compose up -d
 ```
 
 Once docker-compose is finished running, navigate to:
->localhost:7777/product/{some number ending in a value between 1-100}
+`localhost:7777/product/{some number ending in a value between 1-100}`
