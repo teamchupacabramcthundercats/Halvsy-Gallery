@@ -40,7 +40,7 @@ const Gallery = (props) => {
   };
 
   const setCurrentImage = (image) => {
-    setState({ currentMainView: image });
+    setState({ currentMainView: image, modalImage: image });
   };
 
   const toggleFavorite = () => {
