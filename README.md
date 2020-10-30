@@ -1,6 +1,8 @@
 # Halvsy Gallery
 
-This project is a recreation of the gallery component from Etsy's item sales page.  It is being made in conjunction with my team mates on the Team Chupacabra McThundercat organization in an effort to develop our skills by recreating components from the Etsy page.  The sole purpose is to develop and showcase our skills, this component will not be used outside of that scope.
+Welcome to Halvsy Gallery, the gallery component for the Halvsy web app.  The Halvsy Gallery is a service intended to provide a plug and play gallery component built off of a carousel design model with an on-click full screen modal.
+
+The back end of the service is powered by an Express server with data persistence provided by a MySQL database.
 
 ## Related Projects
 
