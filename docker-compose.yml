@@ -2,7 +2,7 @@ version: '3'
 
 services:
   gallery:
-    image: joelcarpenter/etsy-gallery
+    image: joelcarpener/halvsy-gallery
     depends_on:
       - 'gallery-db'
     ports:

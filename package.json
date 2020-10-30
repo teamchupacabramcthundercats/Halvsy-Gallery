@@ -1,7 +1,7 @@
 {
   "name": "ghrsea11-fec-gallery",
   "version": "1.0.0",
-  "description": "Gallery service for Etsy clone as part of the GHRSEA Front End Capstone project.",
+  "description": "Halvsy Gallery Service - A standalone gallery component",
   "main": "index.js",
   "scripts": {
     "start": "node ./server/index.js",
