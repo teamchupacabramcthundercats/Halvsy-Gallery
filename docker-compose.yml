@@ -2,14 +2,14 @@ version: '3'
 
 services:
   gallery:
-    build: .
+    image: joelcarpenter/etsy-gallery
     depends_on:
       - 'gallery-db'
     ports:
       - '7777:7777'
     command: ["./utils/wait-for-it.sh", "gallery-db:3306", "--timeout=30", "--", "npm", "start"]
   gallery-db:
-    build: database/
+    image: joelcarpenter/etsy-gallery-database
     command: --default-authentication-plugin=mysql_native_password
     environment: 
       MYSQL_ROOT_PASSWORD: password
