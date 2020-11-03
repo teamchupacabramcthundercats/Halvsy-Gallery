@@ -64,6 +64,7 @@ For more information on this process, see [Docker's website](https://www.docker.
 Because Halvsy Gallery is configured to launch using a docker-compose file, that's the only file you need!
 
 Open your terminal and navigate to a folder you'd like to store the docker-compose.yml file.
+
 Type into your terminal: `$ nano docker-compose.yml`
 
 This should open a new file called "docker-compose.yml" in Nano, a simple text editor.
