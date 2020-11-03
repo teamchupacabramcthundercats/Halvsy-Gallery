@@ -1,10 +1,16 @@
 # Halvsy Gallery
 
-Welcome to Halvsy Gallery, the gallery component for the Halvsy web app.  The Halvsy Gallery is a service intended to provide a plug and play gallery component built off of a carousel design model.  It also includes the ability to expand the main image to view it full screen via an on-click modal component.  The component utilizes simple animations on button mouse-over as well as main carousel transitions.
+Welcome to Halvsy Gallery, the gallery component for the Halvsy web app.  The Halvsy Gallery is a service intended to provide a plug and play gallery component built off of a carousel design model.
+
+The main gallery component utilizes some simple animations and transitions to add a little life to the component.  Thumbnails are presented vertically and can be navigated using a scroll wheel or by mousing over the top or bottom portion of the carousel.  Included is a "favorite" button in the corner of the main image view, allowing users to add the product to their favorites from any image.
 
 ![](https://media.giphy.com/media/X8BvMHZJXQRJ3mj51x/giphy.gif)
 
-The back end of the service is powered by an Express server with data persistence provided by a MySQL database.
+Also included is an on-click modal which allows the user to get a closer look at the main image.  The modal also displays the rest of the images in the gallery in a vertical carousel using an offset thumbnail size to make it visually distinct.  The user can navigate through the gallery using the modal without influencing the image that's currently selected in the main carousel.
+
+![](https://media.giphy.com/media/Gi8fyxH5n0LQympMaZ/giphy.gif)
+
+The back end of the service is powered by an Express server with data persistence provided via a MySQL database.
 
 ## Related Projects
 
@@ -13,9 +19,9 @@ The back end of the service is powered by an Express server with data persistenc
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#Requirements)
-1. [Installation](#Installation)
+1. [Usage](##Usage)
+1. [Requirements](##Requirements)
+1. [Installation](##Installation)
 
 ## Usage
 
