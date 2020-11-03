@@ -1,6 +1,8 @@
 # Halvsy Gallery
 
-Welcome to Halvsy Gallery, the gallery component for the Halvsy web app.  The Halvsy Gallery is a service intended to provide a plug and play gallery component built off of a carousel design model with an on-click full screen modal.
+Welcome to Halvsy Gallery, the gallery component for the Halvsy web app.  The Halvsy Gallery is a service intended to provide a plug and play gallery component built off of a carousel design model.  It also includes the ability to expand the main image to view it full screen via an on-click modal component.  The component utilizes simple animations on button mouse-over as well as main carousel transitions.
+
+![](https://media.giphy.com/media/X8BvMHZJXQRJ3mj51x/giphy.gif)
 
 The back end of the service is powered by an Express server with data persistence provided by a MySQL database.
 
