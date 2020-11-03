@@ -53,10 +53,46 @@ Used to favorite or unfavorite the product matching the productId parameter.  PA
 ## Requirements
 Currently deployment via Docker is the only supported deployment method.
 
-We require: Docker v19.03.12
+We require: 
+- [Docker v19.03.12](https://www.docker.com/get-started)
+- [docker-compose v1.27.4](https://docs.docker.com/compose/install/)
 
 ## Installation
-From within the root directory:
+Ensure that you have Docker and docker-compose installed.
+For more information on this process, see [Docker's website](https://www.docker.com/get-started)
+
+Because Halvsy Gallery is configured to launch using a docker-compose file, that's the only file you need!
+
+Open your terminal and navigate to a folder you'd like to store the docker-compose.yml file.
+Type into your terminal: `$ nano docker-compose.yml`
+
+This should open a new file called "docker-compose.yml" in Nano, a simple text editor.
+
+Now, copy the following code into the new docker-compose.yml file:
+```sh
+version: '3'
+
+services:
+  gallery:
+    image: joelcarpenter/halvsy-gallery
+    depends_on:
+      - 'gallery-db'
+    ports:
+      - '7777:7777'
+    command: ["./utils/wait-for-it.sh", "gallery-db:3306", "--timeout=30", "--", "npm", "start"]
+  gallery-db:
+    image: joelcarpenter/halvsy-gallery-db
+    command: --default-authentication-plugin=mysql_native_password
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: gallery
+      MYSQL_USER: student
+      MYSQL_PASSWORD: student
+```
+
+Once that's done, press CTRL + X, to exit, followed by 'Y' and then press Enter to save your changes.
+
+That's it!  Now just enter the following line in your terminal to launch the service.
 
 ```sh
 docker-compose up -d
