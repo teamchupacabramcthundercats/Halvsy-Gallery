@@ -1,4 +1,4 @@
-#Halvsy Gallery
+# Halvsy Gallery
 
 Welcome to Halvsy Gallery, the gallery component for the Halvsy web app.  The Halvsy Gallery is a service intended to provide a plug and play gallery component built off of a carousel design model.
 
@@ -12,22 +12,22 @@ Also included is an on-click modal which allows the user to get a closer look at
 
 The back end of the service is powered by an Express server with data persistence provided via a MySQL database.
 
-##Related Projects
+## Related Projects
 
   - [Halvsy Reviews](https://github.com/teamchupacabramcthundercats/etsy-reviews)
   - [Halvsy Gallery](https://github.com/teamchupacabramcthundercats/Halvsy-Gallery)
 
-##Table of Contents
+## Table of Contents
 
 [TOCM]
 
 [TOC]
 
-1. [Usage](#Usage)
-2. [Requirements](#Requirements)
-3. [Installation](#Installation)
+#Usage
+#Requirements
+#Installation
 
-##Usage
+## Usage
 
 To render the reviews component on your page, insert a div with the id "gallery" into your html where you'd like the component to render.
 
@@ -38,7 +38,7 @@ Example: `localhost:7777/product/43`
 
 If serving with a proxy, you'll need to proxy the routes for the API:
 
-###GET: ‘/api/images/:productId’ 
+### GET: ‘/api/images/:productId’ 
 Used to get the details object for the productId containing the product’s id, product name, a boolean value indicating if the product is marked as a favorite, and an images property that contains a collection of image objects associated with the product.  Each image object in the collection will contain three url strings that link to a full, small, and thumbnail sized version of the image.  GET requests sent to this endpoint will return an object of the following format:
 
 ```sh
@@ -58,18 +58,18 @@ Used to get the details object for the productId containing the product’s id, 
 }
 ```
 
-###PATCH: ‘/api/favorite/:productId’
+### PATCH: ‘/api/favorite/:productId’
 Used to favorite or unfavorite the product matching the productId parameter.  PATCH requests sent to this endpoint will toggle the isFavorite property of the product.  If successful, the request will return status 200.
 
 
-##Requirements
+## Requirements
 Currently deployment via Docker is the only supported deployment method.
 
 We require: 
 - [Docker v19.03.12](https://www.docker.com/get-started)
 - [docker-compose v1.27.4](https://docs.docker.com/compose/install/)
 
-##Installation
+## Installation
 Ensure that you have Docker and docker-compose installed.
 For more information on this process, see [Docker's website](https://www.docker.com/get-started)
 
