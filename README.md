@@ -1,3 +1,5 @@
+![](https://i.imgur.com/QApFoBf.png)
+
 # Halvsy Gallery
 
 Welcome to Halvsy Gallery, the gallery component for the Halvsy web app.  The Halvsy Gallery is a service intended to provide a plug and play gallery component built off of a carousel design model.
@@ -19,13 +21,9 @@ The back end of the service is powered by an Express server with data persistenc
 
 ## Table of Contents
 
-[TOCM]
-
-[TOC]
-
-#Usage
-#Requirements
-#Installation
+1. [Usage](#Usage)
+2. [Requirements](#Requirements)
+3. [Installation](#Installation)
 
 ## Usage
 
