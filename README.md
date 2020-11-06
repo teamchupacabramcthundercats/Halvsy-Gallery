@@ -14,8 +14,8 @@ The back end of the service is powered by an Express server with data persistenc
 
 ## Related Projects
 
-  - https://github.com/teamchupacabramcthundercats/etsy-reviews
-  - https://github.com/teamchupacabramcthundercats/Halvsy-Gallery
+  - [Halvsy Reviews](https://github.com/teamchupacabramcthundercats/etsy-reviews)
+  - [Halvsy Gallery](https://github.com/teamchupacabramcthundercats/Halvsy-Gallery)
 
 ## Table of Contents
 
