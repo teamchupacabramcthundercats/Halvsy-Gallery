@@ -1,4 +1,4 @@
-![](https://i.imgur.com/qaoCvPA.png)
+![](https://i.imgur.com/n5douoy.png)
 
 # Halvsy Gallery
 
