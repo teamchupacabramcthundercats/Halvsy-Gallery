@@ -19,5 +19,6 @@ const sampleImages = [
 describe('ModalMainViewImage', () => {
   it('should render without throwing an error', () => {
     const wrapper = shallow(<ModalMainViewImage image={sampleImages[0]} counter={0} display={'inline-block'} />)
+    expect(wrapper.children('img').is('.modal-main-image')).toBe(true);
   });
 });
